@@ -1,0 +1,21 @@
+- 
+  q: What is Shardus?
+  a: Shardus is a project building the base software for a linearly scalable, truly decentralized, sharded ledger. This software can be used as a starting point for other public or private decentralized applications by adding a custom transaction layer. Decentralized application which are built using Shardus will be able to scale to accommodate more throughput as demand grows, by adding more nodes to the network. The first application to use Shardus is the Liberdus payment network and coin.
+-
+  q: What is Liberdus?
+  a: The first application built using the Shardus software will be the Liberdus payment network and coin. Liberdus will have very fast transaction times, very low transaction fees, and sustainable rewards for validators. Liberdus holders can participate in the future direction of the network by voting on economic parameters like transaction fees, validator rewards and a maintenance fund.
+-
+  q: Is there a token for this project?
+  a: Yes, there is a token on the Ethereum network called Unblocked Ledger Token (ULT). In the near future this token will be renamed to Shardus (SHRD). The token is given in exchange for code development and bounty completion. The token is given at a rate of $0.10 per token. The token is not sold in a presale or an ICO.
+-
+  q: How can I obtain tokens?
+  a: There are several ways. If you are a developer you should fill out the Join form and apply to join the development team to earn tokens that way. We also post bounties from time to time and you can earn tokens by completing them. You can also buy or sell the tokens from the Bancor.network decentralized converter.
+-
+  q: Is the Shardus project open source?
+  a: Once the project is completed, the source code will be made available under a Creative Commons BY-NC-SA license with a restriction on commercial use. After 10 years, it will be available under a Creative Commons BY license with no restrictions. Anyone interested in reviewing the code during development, may do so with a NDA which expires after the code is released.
+-
+  q: Is this project similar to EOS?
+  a: In some ways it is similar to EOS since we are both building platform software and are distributing a token that can later be transferred to the network developed by the project. However, our network is technically very different in many ways. One key difference is our goal of maximum decentralization with many nodes able to join the network and low resource requirements for the nodes.
+-
+  q: Where can I get answers to more questions?
+  a: You can check the Advanced FAQ on our Project Wiki. If you still have questions, email info@shardus.com or ask on our subreddit r/Shardus.

@@ -1,0 +1,22 @@
+{
+  "name": "shardus-beta-site",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shardus/shardus-beta-site.git"
+  },
+  "author": "Shardus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shardus/shardus-beta-site/issues"
+  },
+  "homepage": "https://github.com/Shardus/shardus-beta-site#readme",
+  "dependencies": {
+    "jquery-toast-plugin": "^1.3.2"
+  }
+}
