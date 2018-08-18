@@ -1,0 +1,22 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Shardus
+email: info@shardus.com
+description: > # this means to ignore newlines until "baseurl:"
+  Shardus is building a sharded distributed ledger to remedy the problems of traditional blockchains -- scalability, decentralization and security. 
+  The technology being developed will use compute and state sharding to accommodate billions of daily active users, allowing for global scale decentralized application. 
+  The first application built with this technology will be a payment network and coin called Liberdus.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://shardus.com" # the base hostname & protocol for your site
+thumbnail: "assets/img/unblocked-name-1-91-x-1.png"
+thmnl_width: 1200
+thmnl_height: 627
+
+# Build settings
+markdown: kramdown
