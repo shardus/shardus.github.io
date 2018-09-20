@@ -1,0 +1,13 @@
+{
+  "ipApiUrl": "http://api.ipify.org/?format=json",
+  "ip": "127.0.0.1",
+  "port": 8080,
+  "logs": true,
+  "logPath": ".",
+  "H": 3,
+  "V": 3,
+  "T": 3,
+  "supermajority": 0.6,
+  "seedNode": "127.0.0.1:8080",
+  "X": 3
+}
