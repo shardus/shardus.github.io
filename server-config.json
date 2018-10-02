@@ -9,5 +9,8 @@
   "T": 3,
   "supermajority": 0.6,
   "seedNode": "172.104.247.243:8080",
-  "X": 40
+  "X": 40,
+  "timeout": 15,
+  "connections": 15,
+  "pipelining": 5
 }
