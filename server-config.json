@@ -12,5 +12,5 @@
   "X": 60,
   "timeout": 15,
   "connections": 15,
-  "pipelining": 1024
+  "pipelining": 200
 }
