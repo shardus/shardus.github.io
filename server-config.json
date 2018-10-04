@@ -11,6 +11,6 @@
   "seedNode": "172.104.247.243:8080",
   "X": 60,
   "timeout": 15,
-  "connections": 15,
-  "pipelining": 200
+  "connections": 20,
+  "pipelining": 100
 }
