@@ -1,7 +1,7 @@
 {
   "ipApiUrl": "http://api.ipify.org/?format=json",
   "port": 8080,
-  "logs": true,
+  "logs": false,
   "stats": true,
   "logPath": ".",
   "H": 3,
