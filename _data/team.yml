@@ -10,16 +10,21 @@
     photo: aaron.jpg
     linkedin: https://www.linkedin.com/in/aaronsullivan/
   -
+    name: Andrew Foster
+    title: Developer
+    photo: you.png
+    linkedin: https://www.linkedin.com/in/andrew-foster-b95402a/
+  -
     name: Carlos Alberto de Araujo Barreto
     title: Developer
     photo: carlos.jpg
     linkedin: https://www.linkedin.com/in/carlos-araujo-barreto/
+-
   -
     name: Curt Phillips
     title: Developer
     photo: curt.jpg
     linkedin: https://www.linkedin.com/in/curtwphillips/
--
   - 
     name: Derrick Farris
     title: Developer
@@ -35,12 +40,12 @@
     title: Developer
     photo: erik.jpg
     linkedin: https://www.linkedin.com/in/erik-xavier-de-alvarenga-monteiro-383a84106/
+-
   - 
     name: Gani Padela
     title: Developer
     photo: gani.jpg
     linkedin: https://linkedin.com/in/gani-padela-069876109/
--
   - 
     name: Maher Ben Taleb Ali
     title: Developer
@@ -56,12 +61,12 @@
     title: Developer
     photo: ryuhei.jpg
     linkedin: https://www.linkedin.com/in/ryuhei-matsuda-87b467166/
+-
   - 
     name: Salman Ahmad
     title: Developer
     photo: salman_new.jpg
     linkedin: https://linkedin.com/in/salman-ahmad-4a4573113/
--
   - 
     name: Sameer Siddiqui
     title: Developer
@@ -78,11 +83,6 @@
     photo: viktor.jpg
     linkedin: https://www.linkedin.com/in/viktor-zhirkov-6aa966165/
 -
-  - 
-    name: Michael Mayes
-    title: Evangelist
-    photo: michael.jpg
-    linkedin: https://www.linkedin.com/in/michaeldmayes/
   - 
     name: Marc Mattox
     title: Community Relations
