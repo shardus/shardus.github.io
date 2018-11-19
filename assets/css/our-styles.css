@@ -18,6 +18,31 @@ body {
   background-color: #1d1d1d;
 }
 
+.video-panel {
+  margin-top: 100px !important;
+}
+
+@media (max-width: 767px) {
+  .video-panel {
+    margin-top: 50px !important;
+  }
+}
+
+.video-responsive {
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.video-responsive iframe {
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
 #mainNav.navbar-shrink {
     border-bottom: 1px solid #131313;
     background-color: #131313;
