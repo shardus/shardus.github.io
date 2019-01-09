@@ -377,3 +377,7 @@ a.nav-link.nav-dropdown-link:active, a.nav-link.nav-dropdown-link:focus {
     width: 50px;
   }
 }
+
+div#uniswap-convert-section {
+  margin-top: 40px;
+}

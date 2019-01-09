@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="node_modules/jquery-toast-plugin/dist/jquery.toast.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/our-styles.css">
+    <link rel="stylesheet" href="assets/css/uniswap-widget.css">
 </head>
 
 <body id="page-top">
@@ -276,9 +277,7 @@
                 <!-- end col -->
             </div>
             <!--- END ROW -->
-            <div class=row">
-              <div id="bancor-wc" class="custom-widget"></div>
-            </div>
+            <div id="uniswap-convert-section"></div>
         </div>
         <!--- END CONTAINER -->
     </section>
@@ -786,19 +785,29 @@
     <script src="assets/js/form-contact.js"></script>
     <!-- jQuery Toasts -->
     <script src="node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <!-- BigNumber.js -->
+    <script src="assets/js/bignumber.min.js"></script>
 
-    <script src="https://widget-convert.bancor.network/v1"></script>
-    <script>
-      BancorConvertWidget.init({
-        "type": "1",
-        "baseCurrencyId": "5b4d9dd1af9f76a45970c867",
-        "pairCurrencyId": "5937d635231e97001f744267",
-        "primaryColor": "#F4182F",
-        "displayCurrency": "USD"
-      });
-    </script>
     <!-- Our Homebrew Scripts -->
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/scripts.js"></script><script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+    <script src="assets/js/uniswap-widget.js"></script>
+    <script>
+        let config = {
+           mainToken: {
+               symbol: 'ULT',
+               exchangeAddress: '0x28d9353611C5A0d5a026A648c05E5d6523e41CBf'
+           },
+           tokenListUrl: 'https://beta.shardus.com/assets/js/tokenDB.json',
+           colorScheme: {
+               mainColor: 'red',
+               secondaryColor: 'black'
+           },
+           logoUrl: 'https://beta.shardus.com/assets/img/logo.svg',
+           widgetTitle: 'Convert Tokens on Uniswap Exchange'
+       }
+       UniswapConvertWidget(config)
+    </script>
+
 </body>
 
 </html>
