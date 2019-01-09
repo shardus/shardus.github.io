@@ -20,3 +20,4 @@ thmnl_height: 627
 
 # Build settings
 markdown: kramdown
+exclude: []
