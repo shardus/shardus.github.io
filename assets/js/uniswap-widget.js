@@ -632,16 +632,13 @@ let UniswapConvertWidget = async function(config) {
         for (let i = 0; i < tokenSymbols.length; i += 1) {
             selectHTML += `<a class="dropdown-item" token-name="${tokenSymbols[i]}" href="#">${tokenSymbols[i]}</a>`
         }
+
         $('#uniswap-form .dropdown-menu').html(selectHTML)
         setTimeout(() => {
-            calculateULTPrice(mainToken.symbol, 'DAI', 1).then(price => {
-                $('#ULT-price-dai').html(`<strong>${price.toFixed(6)}</strong> $`)
-                $('#exchange-info .dai-rate').html(`1 ULT = ${price.toFixed(6)} DAI`)
-            })
-            calculateULTPrice(mainToken.symbol, 'ETH', 1).then(price => {
-                $('#ULT-price-eth').html(`<strong>${price.toFixed(6)}</strong> ETH`)
-                $('#exchange-info .eth-rate').html(`1 ULT = ${price.toFixed(6)} ETH`)
-            })
+            updateULTPrice(mainToken.symbol)
+            setInterval(() => {
+                updateULTPrice(mainToken.symbol)
+            }, 60000)
         }, 3000)
     }
     
@@ -649,7 +646,24 @@ let UniswapConvertWidget = async function(config) {
         let price = await calcuateInputOutput(inputCurrency, outptCurrency, 'EXACT_INPUT', inputValue)
         return price
     }
-    
+
+    async function updateULTPrice(inputCurrency) {
+        calculateULTPrice(inputCurrency, 'DAI', 1).then(price => {
+            $('#ULT-price-dai').html(`<strong>${price.toFixed(6)}</strong> $`)
+            let inputValue = $('#inputValue').val()
+            let outputValue = $('#outputValue').val()
+            if(inputValue === '' && outputValue==='') $('#exchange-info .dai-rate').html(`1 ULT = ${price.toFixed(6)} DAI`)
+            console.log('ULT-DAI price is updated')
+        })
+        calculateULTPrice(inputCurrency, 'ETH', 1).then(price => {
+            $('#ULT-price-eth').html(`<strong>${price.toFixed(6)}</strong> ETH`)
+            let inputValue = $('#inputValue').val()
+            let outputValue = $('#outputValue').val()
+            if(inputValue === '' && outputValue === '') $('#exchange-info .eth-rate').html(`1 ULT = ${price.toFixed(6)} ETH`)
+            console.log('ULT-ETH price is updated')
+        })
+    }
+
     async function renderUnlockButton(inputCurrency, inputValue) {
         if (inputCurrency === 'ETH' || !inputValue || inputValue == 0) hideUnlockButton()
         const allowance = await getAllowance(inputCurrency, inputValue)
