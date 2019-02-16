@@ -312,10 +312,11 @@ let UniswapConvertWidget = async function(config) {
         return new BigNumber(balance).dividedBy(10 ** 18).toFixed(18)
     }
     
-   function getULTToUSDPrice () {
+   async function getULTToUSDPrice () {
         return new Promise((resolve, reject) => {
                 $.get(`${config.chartServerUrl}/histohour?limit=1`, function(data) {
                     if (data.transactions && data.transactions.length > 0) {
+                        console.log(data)
                         resolve(data.transactions[0].close)
                     }
                 })
