@@ -4,22 +4,24 @@
     align-items: center;
     justify-content: space-between;
     width: 90%;
-    margin: 20px auto;
+    margin: 40px auto;
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     box-shadow: 0px 1px 7px #eee;
 }
 
 #uniswap-convert-section > .row {
     width: 80%;
+    height: 80px;
     display: flex;
     margin: 20px auto;
 }
 
-#uniswap-convert-section > .row > .col-md-4 > h5 {
+#uniswap-convert-section > .row > .col-md-3 > h5 {
     font-size: 13px;
     color: #aaa;
+    text-align: center;
 }
 
 #uniswap-convert-section > .row > .col-md-4 {
@@ -161,4 +163,25 @@
 #convert-btn:hover {
   background-color: rgb(244, 24, 47)!important;
   border: none!important;
+}
+
+.uniswap-convert-section .col-md-3 > h5 {
+  text-align: center;
+}
+.chart-column {
+    display: flex;
+    /* align-items: center; */
+    padding-top: 25px;
+    justify-content: center;
+    height: 100px;
+    /* text-align: center; */
+    /* height: 100%; */
+}
+#ULT-price-dai, #ULT-price-eth {
+  text-align: center;
+}
+
+#uniswap-link {
+  text-align: center;
+  font-size: 11px;
 }

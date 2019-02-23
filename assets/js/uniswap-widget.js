@@ -85,12 +85,58 @@ let UniswapConvertWidget = async function(config) {
             $('#approvalModal input[type=text]').val(minimumAmount)
         })
         
+        async function estimateGasPrice (from, value, inputCurrency, outputCurrency) {
+            console.log(inputCurrency, outputCurrency)
+            let gas
+            let amount = new BigNumber(value * Math.pow(10, 18))
+
+            if (inputCurrency === 'ETH' && outputCurrency === 'ULT' || inputCurrency === 'ULT' && outputCurrency === 'ETH') {
+                console.log(`ETH to ULT or ULT to ETH`)
+                let exchange = exchangeAddresses['ULT']
+                gas = await web3.eth.estimateGas({
+                    from: from,
+                    to: exchange,
+                    value: amount
+                })
+            } else {
+                console.log(`TOKEN to ULT or ULT to TOKEN`)
+                let exchange1 = exchangeAddresses[inputCurrency]
+                let exchange2 = exchangeAddresses[outputCurrency]
+                let gas1 = await web3.eth.estimateGas({
+                    from: from,
+                    to: exchange1,
+                    value: amount
+                })
+                let gas2 = await web3.eth.estimateGas({
+                    from: from,
+                    to: exchange2,
+                    value: amount
+                })
+                gas = gas1 + gas2
+            }
+            let gas_price_network = await web3.eth.getGasPrice()
+            gas_price_network = parseInt(gas_price_network) / Math.pow(10, 9)
+            let cost = ((1.6 * gas * gas_price_network) * 1000000000) / Math.pow(10, 18)
+            console.log(`Estimated Gas is ${gas} WEI`)
+            console.log(`gas price from network: ${gas_price_network} GWEI`)
+            console.log(`Tx Cost is ${cost} ETH`)
+            return cost
+        }
+        
         $('#max-btn').on('click', async e => {
             e.preventDefault()
             const accounts = await web3.eth.getAccounts()
             let inputCurrency = $('#inputCurrency').val()
+            let outputCurrency = $('#outputCurrency').val()
             let balance = await getAccountBalance(inputCurrency, accounts[0])
-            let inputValue = $('#inputValue').val(balance)
+            
+            // estimate gas and substrat from input amount
+            let estimatedGas = await estimateGasPrice(accounts[0], balance, inputCurrency, outputCurrency)
+            let availableAmount
+            if (inputCurrency === 'ETH') availableAmount = balance - estimatedGas // in ETH unit
+            else availableAmount = balance
+            
+            let inputValue = $('#inputValue').val(availableAmount)
             updateInputOutput('input')
         })
         
@@ -218,6 +264,7 @@ let UniswapConvertWidget = async function(config) {
                         $('#swapModal').modal('hide')
                         $('#submittedModal').modal('show')
                         $('#txUrl').attr('href', txUrl)
+                        postTxHashToServer(data)
                     }
                 })
         } else if (type === 'TOKEN_TO_ETH') {
@@ -239,6 +286,7 @@ let UniswapConvertWidget = async function(config) {
                     $('#swapModal').modal('hide')
                     $('#submittedModal').modal('show')
                     $('#txUrl').attr('href', txUrl)
+                    postTxHashToServer(data)
                   }
                 })
         } else if (type === 'TOKEN_TO_TOKEN') {
@@ -263,9 +311,17 @@ let UniswapConvertWidget = async function(config) {
                     $('#swapModal').modal('hide')
                     $('#submittedModal').modal('show')
                     $('#txUrl').attr('href', txUrl)
+                    postTxHashToServer(data)
                   }
                 })
         }
+    }
+    
+    async function postTxHashToServer(txHash) {
+        console.log(`txHash is ${txHash}`)
+        const receiptUrl = `${config.chartServerUrl}/uniswap/receipt`
+        const response = await axios.post(receiptUrl, {txHash})
+        console.log(response)
     }
     
     async function unlockToken(currency, account, approvedAmount) {
@@ -312,11 +368,10 @@ let UniswapConvertWidget = async function(config) {
         return new BigNumber(balance).dividedBy(10 ** 18).toFixed(18)
     }
     
-   async function getULTToUSDPrice () {
+   function getULTToUSDPrice () {
         return new Promise((resolve, reject) => {
                 $.get(`${config.chartServerUrl}/histohour?limit=1`, function(data) {
                     if (data.transactions && data.transactions.length > 0) {
-                        console.log(data)
                         resolve(data.transactions[0].close)
                     }
                 })
@@ -325,9 +380,17 @@ let UniswapConvertWidget = async function(config) {
     
     function getULTToETHPrice () {
         return new Promise((resolve, reject) => {
-                $.get(`${config.chartServerUrl}/histohour?limit=1`, function(data) {
+                $.get(`${config.chartServerUrl}/histohour`, function(data) {
                     if (data.transactions && data.transactions.length > 0) {
-                        let { amount_eth, amount_ult } = data.transactions[0]
+                        let lastTx
+                        for (let i = data.transactions.length - 1; i >= 0; i--) {
+                            if (data.transactions[i].amount_eth > 0) {
+                                lastTx = data.transactions[i]
+                                break
+                            }
+                        }
+                        console.log(lastTx)
+                        let { amount_eth, amount_ult } = lastTx
                         let price = amount_eth / amount_ult
                         resolve(price)
                     }
@@ -495,18 +558,26 @@ let UniswapConvertWidget = async function(config) {
         const baseWidgetTemplate = `
         <h3 id="widget-title"></h3>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <img class="shardus-logo" src="${config.logoUrl}" alt="shardus-logo">
                 <span>${config.mainToken.symbol}</span>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>Current Price</h5>
                 <p id="ULT-price-dai">--</p>
                 <p id="ULT-price-eth">--</p>
             </div>
-            <div class="col-md-4">
+            
+            <div class="col-md-3">
+                <h5>Price Chart</h5>
+                <div class="chart-column">
+                <a href="${config.chartUrl}" target="_blank"><i class="fas fa-chart-line fa-lg"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
                 <div>
-                    <p>Powered By <a href="https://uniswap.exchange">Uniswap</a></p>
+                    <p id="uniswap-link">Powered By <a href="https://uniswap.exchange" target="_blank">Uniswap</a></p>
                 </div>
                 <div>
                     <button type="button" class="btn btn-primary" data-target="#swapModal" data-toggle="modal" data-action="buy" id="buy-btn">Buy</button>
@@ -685,24 +756,31 @@ let UniswapConvertWidget = async function(config) {
     }
     
     async function updateULTPrice(inputCurrency) {
-        calculateULTPrice(inputCurrency, 'DAI', 1).then(price => {
-            // $('#ULT-price-dai').html(`<strong>${price.toFixed(6)}</strong> $`)
-            let inputValue = $('#inputValue').val()
-            let outputValue = $('#outputValue').val()
-            if(inputValue === '' && outputValue==='') $('#exchange-info .dai-rate').html(`1 ULT = ${price.toFixed(6)} DAI`)
-            console.log('ULT-DAI price is updated')
-        })
-        calculateULTPrice(inputCurrency, 'ETH', 1).then(price => {
-            // $('#ULT-price-eth').html(`<strong>${price.toFixed(6)}</strong> ETH`)
-            let inputValue = $('#inputValue').val()
-            let outputValue = $('#outputValue').val()
-            if(inputValue === '' && outputValue === '') $('#exchange-info .eth-rate').html(`1 ULT = ${price.toFixed(6)} ETH`)
-            console.log('ULT-ETH price is updated')
-        })
+        // calculateULTPrice(inputCurrency, 'DAI', 1).then(price => {
+        //     let inputValue = $('#inputValue').val()
+        //     let outputValue = $('#outputValue').val()
+        //     if(inputValue === '' && outputValue==='') $('#exchange-info .dai-rate').html(`1 ULT = ${price.toFixed(6)} DAI`)
+        //     console.log('ULT-DAI price is updated')
+        // })
+        // calculateULTPrice(inputCurrency, 'ETH', 1).then(price => {
+        //     let inputValue = $('#inputValue').val()
+        //     let outputValue = $('#outputValue').val()
+        //     if(inputValue === '' && outputValue === '') $('#exchange-info .eth-rate').html(`1 ULT = ${price.toFixed(6)} ETH`)
+        //     console.log('ULT-ETH price is updated')
+        // })
+        
         let price_ult_usd = await getChartPrices('ULT-USD')
         let price_ult_eth = await getChartPrices('ULT-ETH')
         $('#ULT-price-dai').html(`<strong>${price_ult_usd.toFixed(6)}</strong> $`)
         $('#ULT-price-eth').html(`<strong>${price_ult_eth.toFixed(6)}</strong> ETH`)
+        
+        let inputValue = $('#inputValue').val()
+        let outputValue = $('#outputValue').val()
+        if(inputValue === '' && outputValue==='') {
+            $('#exchange-info .dai-rate').html(`1 ULT = ${price_ult_usd.toFixed(6)} DAI`)
+            $('#exchange-info .eth-rate').html(`1 ULT = ${price_ult_eth.toFixed(6)} ETH`)
+            console.log('ULT-DAI price is updated')
+        }
     }
     
     async function renderUnlockButton(inputCurrency, inputValue) {
