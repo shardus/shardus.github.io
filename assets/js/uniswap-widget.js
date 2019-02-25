@@ -571,7 +571,7 @@ let UniswapConvertWidget = async function(config) {
             <div class="col-md-3">
                 <h5>Price Chart</h5>
                 <div class="chart-column">
-                <a href="${config.chartUrl}" target="_blank"><i class="fas fa-chart-line fa-lg"></i></a>
+                <a href="${config.chartUrl}" target="_blank"><i class="fas fa-chart-line fa-2x"></i></a>
                 </div>
             </div>
             
