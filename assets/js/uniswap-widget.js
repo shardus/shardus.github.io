@@ -389,7 +389,7 @@ let UniswapConvertWidget = async function(config) {
                                 break
                             }
                         }
-                        console.log(lastTx)
+                        // console.log(lastTx)
                         let { amount_eth, amount_ult } = lastTx
                         let price = amount_eth / amount_ult
                         resolve(price)
@@ -558,7 +558,7 @@ let UniswapConvertWidget = async function(config) {
         const baseWidgetTemplate = `
         <h3 id="widget-title"></h3>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 logo-container">
                 <img class="shardus-logo" src="${config.logoUrl}" alt="shardus-logo">
                 <span>${config.mainToken.symbol}</span>
             </div>
@@ -571,7 +571,7 @@ let UniswapConvertWidget = async function(config) {
             <div class="col-md-3">
                 <h5>Price Chart</h5>
                 <div class="chart-column">
-                <a href="${config.chartUrl}" target="_blank"><i class="fas fa-chart-line fa-2x"></i></a>
+                <a href="${config.chartUrl}" target="_blank"><i class="fas fa-chart-line fa-3x"></i></a>
                 </div>
             </div>
             
@@ -608,6 +608,9 @@ let UniswapConvertWidget = async function(config) {
                           </div>
                           <div class="alert alert-success alert-dismissible alert-submitted hide" role="alert">
                               Transaction submitted.
+                          </div>
+                          <div class="alert alert-warning alert-dismissible alert-high-slippage hide" role="alert">
+                              Please reduce the amount so that the <strong>slippage</strong> is less than 10%
                           </div>
                         <form id="uniswap-form">
                           <div class="form-group pay-group">
@@ -823,6 +826,19 @@ let UniswapConvertWidget = async function(config) {
         $('.alert').hide()
     }
     
+    function checkSlippage(slippage, inputCurrency, inputValue) {
+        if (slippage >= 10) {
+            $('#convert-btn').attr('disabled', true)
+            $('.alert').hide()
+            $('.alert-high-slippage').show()
+        } else {
+            let isDisabled = $('#convert-btn').attr('disabled')
+            $('#convert-btn').attr('disabled', false)
+            $('.alert-high-slippage').hide()
+            renderUnlockButton(inputCurrency, inputValue)
+        }
+    }
+    
     async function updateInputOutput(lastChangedField) {
         const inputCurrency = $('#inputCurrency').val()
         const outputCurrency = $('#outputCurrency').val()
@@ -854,7 +870,6 @@ let UniswapConvertWidget = async function(config) {
             }
             else $('#inputValue').val('')
         }
-        
         renderUnlockButton(inputCurrency, inputValue)
     }
     
@@ -885,6 +900,7 @@ let UniswapConvertWidget = async function(config) {
                 
                 $('#exchange-info .dai-rate').html(`1 ULT = ${exchangeRate.toFixed(6)} ${outputCurrency}`)
                 $('#slippage').html(`${slippage.toFixed(2)} %`)
+                checkSlippage(slippage, inputCurrency, inputValue)
 
                 calculateULTPrice(mainToken.symbol, 'ETH', inputValue).then(output => {
                     let exchangeRate = output / inputValue
@@ -906,6 +922,7 @@ let UniswapConvertWidget = async function(config) {
                 let slippage = 100 * Math.abs(absPrice - exchangeRate) / absPrice
                 $('#exchange-info .eth-rate').html(`1 ULT = ${exchangeRate.toFixed(6)} ${outputCurrency}`)
                 $('#slippage').html(`${slippage.toFixed(2)} %`)
+                checkSlippage(slippage, inputCurrency, inputValue)
                 
                 calculateULTPrice(mainToken.symbol, 'DAI', inputValue).then(output => {
                     let exchangeRate = output / inputValue
@@ -938,6 +955,7 @@ let UniswapConvertWidget = async function(config) {
                 
                 $('#exchange-info .dai-rate').html(`1 ${inputCurrency} = ${exchangeRate.toFixed(6)} ${mainToken.symbol}`)
                 $('#slippage').html(`${slippage.toFixed(2)} %`)
+                checkSlippage(slippage, inputCurrency, inputValue)
 
                 calculateULTPrice('ETH', mainToken.symbol, inputValue).then(ethOutput => {
                     let exchangeRate = ethOutput / inputValue
@@ -959,6 +977,7 @@ let UniswapConvertWidget = async function(config) {
                 let slippage = 100 * Math.abs(absPrice - exchangeRate) / absPrice
                 $('#exchange-info .eth-rate').html(`1 ${inputCurrency} = ${exchangeRate.toFixed(6)} ${mainToken.symbol}`)
                 $('#slippage').html(`${slippage.toFixed(2)} %`)
+                checkSlippage(slippage, inputCurrency, inputValue)
 
                 calculateULTPrice('DAI', mainToken.symbol, inputValue).then(daiOutput => {
                     let exchangeRate = daiOutput / inputValue

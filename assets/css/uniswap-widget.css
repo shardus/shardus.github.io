@@ -94,6 +94,10 @@
   background: rgb(244, 24, 47);
 }
 
+#uniswap-convert-section .logo-container {
+  padding-top: 10px
+}
+
 #uniswap-convert-section .shardus-logo {
   width: 60px;
 }
@@ -170,9 +174,15 @@
 }
 .chart-column {
     display: flex;
-    padding-top: 15px;
+    padding-top: 8px;
     justify-content: center;
     height: 100px;
+}
+.chart-column a:focus {
+  color: #ed1b24;
+}
+.chart-column a:hover {
+  color: #cf2b3c;
 }
 #ULT-price-dai, #ULT-price-eth {
   text-align: center;
