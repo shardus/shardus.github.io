@@ -272,8 +272,10 @@ let UniswapConvertWidget = async function(config) {
         } else if (type === 'TOKEN_TO_ETH') {
             exchangeContract = exchangeContracts[inputCurrency]
             const tokenSold = new BigNumber(inputValue).multipliedBy(10 ** 18).toFixed(0)
-            const minEth = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
-            console.log(minEth)
+            // const minEth = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
+            const exchangeRate = parseFloat(outputValue / inputValue)
+            const minEth = new BigNumber(outputValue).minus(exchangeRate).multipliedBy(10 ** 18).toFixed(0)
+            console.log(`Minimum required ETH is: ${minEth/Math.pow(10,18)} ${outputCurrency}`)
             
             exchangeContract.methods.tokenToEthSwapInput(tokenSold, minEth, deadline)
                 .send({ from: accounts[0] }, (err, data) => {
@@ -295,10 +297,18 @@ let UniswapConvertWidget = async function(config) {
         } else if (type === 'TOKEN_TO_TOKEN') {
             exchangeContract = exchangeContracts[inputCurrency]
             const tokenSold = new BigNumber(inputValue).multipliedBy(10 ** 18).toFixed(0)
-            const minToken = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
+            // const minToken = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
+            let exchangeRate
+            let minToken
+            if (inputCurrency === config.mainToken.symbol) {
+                exchangeRate = parseFloat(outputValue / inputValue)
+                minToken = new BigNumber(outputValue).minus(exchangeRate).multipliedBy(10 ** 18).toFixed(0)
+            } else if (outputCurrency === config.mainToken.symbol) {
+                minToken = new BigNumber(outputValue).minus(1).multipliedBy(10 ** 18).toFixed(0)
+            }
             const minEth = new BigNumber(1).toFixed(0)
             const outputTokenAddress = tokenAddressess[outputCurrency]
-            console.log(minToken)
+            console.log(`Minimum required token is: ${minToken/Math.pow(10,18)} ${outputCurrency}`)
             
             exchangeContract.methods.tokenToTokenSwapInput(
                 tokenSold,
