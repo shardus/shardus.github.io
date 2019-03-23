@@ -251,10 +251,11 @@ let UniswapConvertWidget = async function(config) {
         let exchangeContract
         if (type === 'ETH_TO_TOKEN') {
             exchangeContract = exchangeContracts[outputCurrency]
-            const max_tokens = new BigNumber(100000).toFixed(0)
+            const min_token = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
+            console.log(min_token)
             const amount = new BigNumber(inputValue).multipliedBy(10 ** 18).toFixed(0)
             
-            exchangeContract.methods.ethToTokenSwapInput(max_tokens,deadline)
+            exchangeContract.methods.ethToTokenSwapInput(min_token,deadline)
                 .send({from: accounts[0], value: amount}, (err, data) => {
                     if (err) console.log(err)
                     else {
@@ -270,7 +271,8 @@ let UniswapConvertWidget = async function(config) {
         } else if (type === 'TOKEN_TO_ETH') {
             exchangeContract = exchangeContracts[inputCurrency]
             const tokenSold = new BigNumber(inputValue).multipliedBy(10 ** 18).toFixed(0)
-            const minEth = new BigNumber(2).toFixed(0)
+            const minEth = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
+            console.log(minEth)
             
             exchangeContract.methods.tokenToEthSwapInput(tokenSold, minEth, deadline)
                 .send({ from: accounts[0] }, (err, data) => {
@@ -295,6 +297,7 @@ let UniswapConvertWidget = async function(config) {
             const minToken = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
             const minEth = new BigNumber(1).toFixed(0)
             const outputTokenAddress = tokenAddressess[outputCurrency]
+            console.log(minToken)
             
             exchangeContract.methods.tokenToTokenSwapInput(
                 tokenSold,
