@@ -251,8 +251,9 @@ let UniswapConvertWidget = async function(config) {
         let exchangeContract
         if (type === 'ETH_TO_TOKEN') {
             exchangeContract = exchangeContracts[outputCurrency]
-            const min_token = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
-            console.log(min_token)
+            // const min_token = new BigNumber(outputValue).multipliedBy(10 ** 18).multipliedBy(1 - ALLOWED_SLIPPAGE).toFixed(0)
+            const min_token = new BigNumber(outputValue).minus(1).multipliedBy(10 ** 18).toFixed(0)
+            console.log(`Minimum required token is: ${min_token} ${outputCurrency}`)
             const amount = new BigNumber(inputValue).multipliedBy(10 ** 18).toFixed(0)
             
             exchangeContract.methods.ethToTokenSwapInput(min_token,deadline)
