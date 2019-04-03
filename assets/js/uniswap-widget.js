@@ -23,8 +23,12 @@ let UniswapConvertWidget = async function(config) {
             tokenDB = data
             init()
         })
-
+    function initiateMetamask() {
+        console.log("Requesting metamask...")
+        window.ethereum.enable()
+    }
     function init() {
+        initiateMetamask()
         exchangeAddresses = tokenDB.exchangeAddresses
         tokenSymbols = Object.keys(exchangeAddresses)
         
@@ -593,7 +597,7 @@ let UniswapConvertWidget = async function(config) {
                 <div>
                     <p id="uniswap-link">Powered By <a href="https://uniswap.exchange" target="_blank">Uniswap</a></p>
                 </div>
-                <div>
+                <div class="buy-sell-button-container">
                     <button type="button" class="btn btn-primary" data-target="#swapModal" data-toggle="modal" data-action="buy" id="buy-btn">Buy</button>
                     <button type="button" class="btn btn-primary" data-target="#swapModal" data-toggle="modal" data-action="sell" id="sell-btn">Sell</button>
                 </div>
