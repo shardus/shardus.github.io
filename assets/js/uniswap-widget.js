@@ -25,10 +25,13 @@ let UniswapConvertWidget = async function(config) {
         })
     function initiateMetamask() {
         console.log("Requesting metamask...")
+        if (!window.ethereum) {
+            $('#noAccountModal').modal('show')
+        }
         window.ethereum.enable()
     }
     function init() {
-        initiateMetamask()
+        // initiateMetamask()
         exchangeAddresses = tokenDB.exchangeAddresses
         tokenSymbols = Object.keys(exchangeAddresses)
         
@@ -162,6 +165,7 @@ let UniswapConvertWidget = async function(config) {
         
         $('#sell-btn, #buy-btn').on('click', async e => {
             e.stopPropagation()
+            initiateMetamask()
             let isUserLoggedIn = await isLoggedIn()
             if (!isUserLoggedIn) {
                 $('#noAccountModal').modal('show')
@@ -704,6 +708,8 @@ let UniswapConvertWidget = async function(config) {
                     </div>
                   </div>
                 </div>
+                
+                
                 
                 <!--submitted modal-->
                 <div class="modal fade" tabindex="-1" role="dialog" id="submittedModal">
