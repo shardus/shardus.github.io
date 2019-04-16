@@ -14,7 +14,7 @@ description: > # this means to ignore newlines until "baseurl:"
   The first application built with this technology will be a payment network and coin called Liberdus.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://shardus.com" # the base hostname & protocol for your site
-thumbnail: "assets/img/unblocked-name-1-91-x-1.png"
+thumbnail: "assets/img/shardus-thumb-04-2019-1-91.png"
 thmnl_width: 1200
 thmnl_height: 627
 
