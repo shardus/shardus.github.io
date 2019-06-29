@@ -15,6 +15,8 @@ let UniswapConvertWidget = async function(config) {
     let exchangeContracts = {}
     let tokenContracts = {}
     const ALLOWED_SLIPPAGE = 0.025;
+    let defaultGasPrice = 7000000000 // in wei
+    let defaultGasLimit = 42000
     let mainToken = config.mainToken
     let tokenDB
     // get Token list
@@ -30,6 +32,48 @@ let UniswapConvertWidget = async function(config) {
         }
         window.ethereum.enable()
     }
+    async function estimateGasPrice (from, value, inputCurrency, outputCurrency) {
+            console.log(inputCurrency, outputCurrency)
+            let gas
+            let amount = new BigNumber(value * Math.pow(10, 18))
+
+            if (inputCurrency === 'ETH' && outputCurrency === 'ULT' || inputCurrency === 'ULT' && outputCurrency === 'ETH') {
+                console.log(`ETH to ULT or ULT to ETH`)
+                let exchange = exchangeAddresses['ULT']
+                gas = await web3.eth.estimateGas({
+                    from: from,
+                    to: exchange,
+                    value: amount
+                })
+            } else {
+                console.log(`TOKEN to ULT or ULT to TOKEN`)
+                let exchange1 = exchangeAddresses[inputCurrency]
+                let exchange2 = exchangeAddresses[outputCurrency]
+                let gas1 = await web3.eth.estimateGas({
+                    from: from,
+                    to: exchange1,
+                    value: amount
+                })
+                let gas2 = await web3.eth.estimateGas({
+                    from: from,
+                    to: exchange2,
+                    value: amount
+                })
+                gas = gas1 + gas2
+            }
+            let gas_price_network = await web3.eth.getGasPrice()
+            gas_price_network = parseInt(gas_price_network) / Math.pow(10, 9)
+            let cost = ((1.6 * gas * gas_price_network) * 1000000000) / Math.pow(10, 18)
+            console.log(`Estimated Gas is ${gas} WEI`)
+            console.log(`gas price from network: ${gas_price_network} GWEI`)
+            console.log(`Tx Cost is ${cost} ETH`)
+            return {
+                txFee: cost,
+                gasLimit: parseInt(gas * 1.6),
+                gasPrice: parseInt(gas_price_network * Math.pow(10, 9))
+            }
+        }
+        
     function init() {
         // initiateMetamask()
         exchangeAddresses = tokenDB.exchangeAddresses
@@ -92,44 +136,6 @@ let UniswapConvertWidget = async function(config) {
             $('#approvalModal input[type=text]').val(minimumAmount)
         })
         
-        async function estimateGasPrice (from, value, inputCurrency, outputCurrency) {
-            console.log(inputCurrency, outputCurrency)
-            let gas
-            let amount = new BigNumber(value * Math.pow(10, 18))
-
-            if (inputCurrency === 'ETH' && outputCurrency === 'ULT' || inputCurrency === 'ULT' && outputCurrency === 'ETH') {
-                console.log(`ETH to ULT or ULT to ETH`)
-                let exchange = exchangeAddresses['ULT']
-                gas = await web3.eth.estimateGas({
-                    from: from,
-                    to: exchange,
-                    value: amount
-                })
-            } else {
-                console.log(`TOKEN to ULT or ULT to TOKEN`)
-                let exchange1 = exchangeAddresses[inputCurrency]
-                let exchange2 = exchangeAddresses[outputCurrency]
-                let gas1 = await web3.eth.estimateGas({
-                    from: from,
-                    to: exchange1,
-                    value: amount
-                })
-                let gas2 = await web3.eth.estimateGas({
-                    from: from,
-                    to: exchange2,
-                    value: amount
-                })
-                gas = gas1 + gas2
-            }
-            let gas_price_network = await web3.eth.getGasPrice()
-            gas_price_network = parseInt(gas_price_network) / Math.pow(10, 9)
-            let cost = ((1.6 * gas * gas_price_network) * 1000000000) / Math.pow(10, 18)
-            console.log(`Estimated Gas is ${gas} WEI`)
-            console.log(`gas price from network: ${gas_price_network} GWEI`)
-            console.log(`Tx Cost is ${cost} ETH`)
-            return cost
-        }
-        
         $('#max-btn').on('click', async e => {
             e.preventDefault()
             const accounts = await web3.eth.getAccounts()
@@ -138,9 +144,9 @@ let UniswapConvertWidget = async function(config) {
             let balance = await getAccountBalance(inputCurrency, accounts[0])
             
             // estimate gas and substrat from input amount
-            let estimatedGas = await estimateGasPrice(accounts[0], balance, inputCurrency, outputCurrency)
+            let { txFee, gasLimit, gasPrice } = await estimateGasPrice(accounts[0], balance, inputCurrency, outputCurrency)
             let availableAmount
-            if (inputCurrency === 'ETH') availableAmount = balance - estimatedGas // in ETH unit
+            if (inputCurrency === 'ETH') availableAmount = balance - txFee // in ETH unit
             else availableAmount = balance
             
             let inputValue = $('#inputValue').val(availableAmount)
@@ -256,6 +262,12 @@ let UniswapConvertWidget = async function(config) {
         const block = await web3.eth.getBlock(blockNumber)
         const deadline =  block.timestamp + 300;
         const accounts = await web3.eth.getAccounts()
+        let balance = await getAccountBalance(inputCurrency, accounts[0])
+        let {
+            txFee,
+            gasLimit,
+            gasPrice
+        } = await estimateGasPrice (accounts[0], balance, inputCurrency, outputCurrency)
         let exchangeContract
         if (type === 'ETH_TO_TOKEN') {
             exchangeContract = exchangeContracts[outputCurrency]
@@ -265,7 +277,7 @@ let UniswapConvertWidget = async function(config) {
             const amount = new BigNumber(inputValue).multipliedBy(10 ** 18).toFixed(0)
             
             exchangeContract.methods.ethToTokenSwapInput(min_token,deadline)
-                .send({from: accounts[0], value: amount}, (err, data) => {
+                .send({from: accounts[0], value: amount, gasPirce: gasPrice || defaultGasPrice, gasLimit: gasLimit || defaultGasLimit }, (err, data) => {
                     if (err) console.log(err)
                     else {
                         console.log(`TxId is ${JSON.stringify(data)}`)
@@ -286,7 +298,7 @@ let UniswapConvertWidget = async function(config) {
             console.log(`Minimum required ETH is: ${minEth/Math.pow(10,18)} ${outputCurrency}`)
             
             exchangeContract.methods.tokenToEthSwapInput(tokenSold, minEth, deadline)
-                .send({ from: accounts[0] }, (err, data) => {
+                .send({ from: accounts[0], gasPirce: gasPrice || defaultGasPrice, gasLimit: gasLimit || defaultGasLimit  }, (err, data) => {
                   if (err) {
                       alert('Transaction is not submitted')
                       $('#convert-btn').attr('disabled', false)
@@ -317,14 +329,14 @@ let UniswapConvertWidget = async function(config) {
             const minEth = new BigNumber(1).toFixed(0)
             const outputTokenAddress = tokenAddressess[outputCurrency]
             console.log(`Minimum required token is: ${minToken/Math.pow(10,18)} ${outputCurrency}`)
-            
+            // console.log(tokenSold, minToken, minEth, gasPrice, gasLimit)
             exchangeContract.methods.tokenToTokenSwapInput(
                 tokenSold,
                 minToken,
                 minEth,
                 deadline,
                 outputTokenAddress
-            ).send({ from: accounts[0] }, (err, data) => {
+            ).send({ from: accounts[0], gasPirce: gasPrice || defaultGasPrice, gasLimit: gasLimit || defaultGasLimit  }, (err, data) => {
                   if (err) console.log(err)
                   else {
                     console.log(`TxId is ${JSON.stringify(data)}`)
@@ -356,7 +368,7 @@ let UniswapConvertWidget = async function(config) {
         const exchangeAddress = exchangeAddresses[currency]
         const contract = new web3.eth.Contract(ERC20_ABI, tokenAddress)
         try {
-            await contract.methods.approve(exchangeAddress, amount).send({ from: account })
+            await contract.methods.approve(exchangeAddress, amount).send({ from: account, gasPirce: defaultGasPrice, gasLimit: defaultGasLimit  })
         } catch(e) {
             alert('Approval Transaction is not submitted. Please try again.')
             $('#convert-btn').attr('disabled', false)
