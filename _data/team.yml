@@ -47,6 +47,11 @@
     photo: gani.jpg
     linkedin: https://linkedin.com/in/gani-padela-069876109/
   - 
+    name: Kyle Shifflett
+    title: Developer
+    photo: kyle.jpg
+    linkedin: https://www.linkedin.com/in/kshifflett/
+  - 
     name: Maher Ben Taleb Ali
     title: Developer
     photo: maher.jpg
@@ -56,12 +61,12 @@
     title: Developer
     photo: omar.jpg
     linkedin: https://www.linkedin.com/in/omarsyed1/
+-
   -
     name: Ryuhei Matsuda
     title: Developer
     photo: ryuhei.jpg
     linkedin: https://www.linkedin.com/in/ryuhei-matsuda-87b467166/
--
   - 
     name: Salman Ahmad
     title: Developer
@@ -77,11 +82,6 @@
     title: Developer
     photo: thant.jpg
     linkedin: https://www.linkedin.com/in/thant-sin-toe-71713265/
-  -
-    name: Viktor Zhirkov
-    title: Developer
-    photo: viktor.jpg
-    linkedin: https://www.linkedin.com/in/viktor-zhirkov-6aa966165/
 -
   - 
     name: Marc Mattox
