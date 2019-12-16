@@ -381,3 +381,11 @@ a.nav-link.nav-dropdown-link:active, a.nav-link.nav-dropdown-link:focus {
 div#uniswap-convert-section {
   margin-top: 40px;
 }
+
+.g-recaptcha {
+  display: inline-block;
+}
+
+.captcha-wrap {
+  margin-top: 20px;
+}
