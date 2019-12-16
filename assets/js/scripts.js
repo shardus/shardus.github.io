@@ -11,6 +11,17 @@
         });
     };
 
+    var captchaFailure = function() {
+        $.toast({
+            heading: 'Error',
+            text : '<strong style="font-size: 16px;">Failure</strong><p>Your form was not submitted. Please complete reCaptcha before resubmitting.</p>',
+            hideAfter : 5000,
+            bgColor : 'red',
+            icon : 'error',
+            position: 'bottom-center'
+        });
+    }
+
     $(document).on('ready', function() {
 			
         /* MENU JS */
@@ -45,6 +56,11 @@
         $('.newsletter-form').submit(function(e) {
             var $this = $(this);
             e.preventDefault();
+            var $captchaResponse = $this.find('[name="g-recaptcha-response"]').val();
+            if ($captchaResponse === '') {
+                captchaFailure();
+                return;
+            };
             $.ajax({
                 url:'https://my.sendinblue.com/users/subscribeembed/js_id/387o4/id/1',
                 type:'post',
