@@ -15,6 +15,9 @@
             gtag('config', 'UA-147135966-1');
         </script>
 
+    <!-- reCaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -779,9 +782,10 @@
                                     <input type="hidden" name="hdn_email_txt" value="">
                                     <input type="hidden" name="sib_simple" value="simple">
                                     <input type="hidden" name="sib_forward_url" value="https://shardus.com">
-                                    <input type="hidden" name="req_hid" value="" style="font-size: 13px;">
+                                    <input type="hidden" name="req_hid" id="req_hid" value="~Captcha" style="font-size: 13px;">
                                      <div class="form-group">
                                          <input required type="email" name="email" class="form-email" value="" placeholder="Your E-mail">
+                                         <div class="g-recaptcha" id="gcaptcha"></div>
                                          <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><span class="fa fa-paper-plane-o"></span></button>
                                      </div>
                                  </form>
@@ -804,6 +808,12 @@
     ==End footer section==  
     =======================================-->
 
+    <!-- reCaptcha -->
+    <script> 
+        // var verifyCallback = function(response) { if(response.length > 0) { $(".captcha > div.row > div.message_area").remove(); } };
+        var myCallBack = function() { if($('#gcaptcha').length > 0) { var captcha = grecaptcha.render('gcaptcha', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'light' }); } };
+    </script>
+    <!-- End reCaptcha -->
 
     <!-- Latest jQuery -->
     <script src="assets/js/jquery-2.2.4.min.js"></script>
