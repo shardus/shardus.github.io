@@ -333,9 +333,10 @@
                     <input type="hidden" name="hdn_email_txt" value="">
                     <input type="hidden" name="sib_simple" value="simple">
                     <input type="hidden" name="sib_forward_url" value="https://shardus.com">
-                    <input type="hidden" name="req_hid" value="" style="font-size: 13px;">
+                    <input type="hidden" name="req_hid" value="~Captcha" style="font-size: 13px;">
                      <div class="form-group">
                          <input required type="email" name="email" class="form-email" value="" placeholder="Your E-mail">
+                         <div class="g-recaptcha" id="gcaptcha1"></div>
                          <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><span class="fas fa-paper-plane"></span></button>
                      </div>
                  </form>
@@ -784,7 +785,7 @@
                                     <input type="hidden" name="req_hid" id="req_hid" value="~Captcha" style="font-size: 13px;">
                                      <div class="form-group">
                                          <input required type="email" name="email" class="form-email" value="" placeholder="Your E-mail">
-                                         <div class="g-recaptcha" id="gcaptcha"></div>
+                                         <div class="g-recaptcha" id="gcaptcha2"></div>
                                          <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><i class="fas fa-paper-plane"></i></button>
                                      </div>
                                  </form>
@@ -810,7 +811,10 @@
     <!-- reCaptcha -->
     <script> 
         // var verifyCallback = function(response) { if(response.length > 0) { $(".captcha > div.row > div.message_area").remove(); } };
-        var myCallBack = function() { if($('#gcaptcha').length > 0) { var captcha = grecaptcha.render('gcaptcha', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'dark', 'size' : 'compact' }); } };
+        var myCallBack = function() { 
+            if($('#gcaptcha1').length > 0) { var captcha = grecaptcha.render('gcaptcha1', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'dark' }); }
+            if($('#gcaptcha2').length > 0) { var captcha = grecaptcha.render('gcaptcha2', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'dark', 'size' : 'compact' }); }
+        };
     </script>
     <!-- End reCaptcha -->
 
