@@ -39,7 +39,7 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,400,500,600,700" rel="stylesheet">
     <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/2240adb178.js"></script>
     <!-- icofont icon -->
     <link rel="stylesheet" href="assets/fonts/icofont.css">
     <!-- animate CSS -->
@@ -337,7 +337,7 @@
                     <input type="hidden" name="req_hid" value="" style="font-size: 13px;">
                      <div class="form-group">
                          <input required type="email" name="email" class="form-email" value="" placeholder="Your E-mail">
-                         <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><span class="fa fa-paper-plane-o"></span></button>
+                         <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><span class="fas fa-paper-plane"></span></button>
                      </div>
                  </form>
             </div>
@@ -786,7 +786,7 @@
                                      <div class="form-group">
                                          <input required type="email" name="email" class="form-email" value="" placeholder="Your E-mail">
                                          <div class="g-recaptcha" id="gcaptcha"></div>
-                                         <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><span class="fa fa-paper-plane-o"></span></button>
+                                         <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><span class="fas fa-paper-plane"></span></button>
                                      </div>
                                  </form>
                               </div>
@@ -811,7 +811,7 @@
     <!-- reCaptcha -->
     <script> 
         // var verifyCallback = function(response) { if(response.length > 0) { $(".captcha > div.row > div.message_area").remove(); } };
-        var myCallBack = function() { if($('#gcaptcha').length > 0) { var captcha = grecaptcha.render('gcaptcha', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'light' }); } };
+        var myCallBack = function() { if($('#gcaptcha').length > 0) { var captcha = grecaptcha.render('gcaptcha', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'dark', 'size' : 'compact' }); } };
     </script>
     <!-- End reCaptcha -->
 
