@@ -863,24 +863,24 @@
     <script src="assets/js/scripts.js"></script><script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
     <script src="assets/js/uniswap-widget.js"></script>
     <script>
-        let config = {
-           mainToken: {
-               symbol: 'ULT',
-               exchangeAddress: '0x28d9353611C5A0d5a026A648c05E5d6523e41CBf'
-           },
-           tokenListUrl: 'https://beta.shardus.com/assets/js/tokenDB.json',
-          chartServerUrl: 'https://bounty.shardus.com:8889',
-          chartUrl: 'http://bounty.shardus.com:3333/',
-        //   chartServerUrl: 'http://172.104.247.243:8888',
-        // chartUrl: 'http://172.104.57.87:3333/',
-           colorScheme: {
-               mainColor: 'red',
-               secondaryColor: 'black'
-           },
-           logoUrl: 'https://beta.shardus.com/assets/img/logo.svg',
-           widgetTitle: ''
-       }
-       UniswapConvertWidget(config)
+    // change mainToken field as needed
+    let mainConfig = {
+        mainToken: {
+            symbol: 'ULT',
+            tokenAddress: '0x09617F6fD6cF8A71278ec86e23bBab29C04353a7',
+            exchangeAddress: '0x28d9353611c5a0d5a026a648c05e5d6523e41cbf'
+        },
+        mainServerUrl: 'https://uniswapdex.com:8889',
+    }
+    let widgetConfig = {
+        mainToken: mainConfig.mainToken,
+        tokenListUrl: 'https://beta.shardus.com/assets/js/tokenDB.json',
+        summaryUrl: `${mainConfig.mainServerUrl}/api/summary?tokenAddress=${mainConfig.mainToken.tokenAddress}`,
+        chartUrl: 'http://bounty.shardus.com:3333/',
+        logoUrl: `${mainConfig.mainServerUrl}/static/${mainConfig.mainToken.tokenAddress.toLowerCase()}.png`,
+        widgetTitle: ''
+    }
+    UniswapConvertWidget(widgetConfig)
     </script>
 
 </body>
