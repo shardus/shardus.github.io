@@ -326,20 +326,15 @@
                 <p class="white">To stay up-to-date with the Shardus project, subscribe to our newsletter! </p>
             </div>
             <div class="newsletter-form-bounty">
-                 <form class="newsletter-form description" id="bountyForm" name="theform" action="https://my.sendinblue.com/users/subscribeembed/js_id/387o4/id/1" method="POST">
-                    <input type="hidden" name="js_id" value="387o4">
-                    <input type="hidden" name="listid" value="4">
-                    <input type="hidden" name="from_url" value="yes">
-                    <input type="hidden" name="hdn_email_txt" value="">
-                    <input type="hidden" name="sib_simple" value="simple">
-                    <input type="hidden" name="sib_forward_url" value="https://shardus.com">
-                    <input type="hidden" name="req_hid" value="~Captcha" style="font-size: 13px;">
+                 <form class="newsletter-form description" id="bountyForm" name="theform" action="https://app.mailerlite.com/webforms/submit/r8m8m0" data-code="r8m8m0" method="post" target="_blank">
                      <div class="form-group">
-                         <input required type="email" name="email" class="form-email" value="" placeholder="Your E-mail">
+                        <input type="email" class="form-email" data-inputmask="" name="fields[email]" placeholder="Your Email" autocomplete="email">
                          <div class="text-center captcha-wrap">
                             <div class="g-recaptcha" id="gcaptcha1"></div>
                          </div>
-                         <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><span class="fas fa-paper-plane"></span></button>
+                         <input type="hidden" name="ml-submit" value="1">
+                         <button type="submit" class="send-btn" data-editfield="subscribe"><span class="fas fa-paper-plane"></span></button>
+                         <img src="https://track.mailerlite.com/webforms/o/1676002/r8m8m0?v4a60e9ef938a7fa0240ac9ba567062cb" width="1" height="1" style="max-width:1px;max-height:1px;visibility:hidden;padding:0;margin:0;display:block" alt="." border="0">
                      </div>
                  </form>
             </div>
@@ -777,22 +772,17 @@
                          <div class="widget-content">
                            <div class="text">Stay updated with our latest news.</div>
                               <div class="newsletter-form-footer">
-                                 <form class="newsletter-form description" id="footerForm" name="theform" action="https://my.sendinblue.com/users/subscribeembed/js_id/387o4/id/1" method="POST">
-                                    <input type="hidden" name="js_id" value="387o4">
-                                    <input type="hidden" name="listid" value="4">
-                                    <input type="hidden" name="from_url" value="yes">
-                                    <input type="hidden" name="hdn_email_txt" value="">
-                                    <input type="hidden" name="sib_simple" value="simple">
-                                    <input type="hidden" name="sib_forward_url" value="https://shardus.com">
-                                    <input type="hidden" name="req_hid" id="req_hid" value="~Captcha" style="font-size: 13px;">
-                                     <div class="form-group">
-                                         <input required type="email" name="email" class="form-email" value="" placeholder="Your E-mail">
-                                         <div class="captcha-wrap">
-                                            <div class="g-recaptcha" id="gcaptcha2"></div>
-                                         </div>
-                                         <button type="submit" name="subscribe" class="send-btn" data-editfield="subscribe"><i class="fas fa-paper-plane"></i></button>
-                                     </div>
-                                 </form>
+                                 <form class="newsletter-form description" id="footerForm" name="theform" action="https://app.mailerlite.com/webforms/submit/r8m8m0" data-code="r8m8m0" method="post" target="_blank">
+                                    <div class="form-group">
+                                       <input type="email" class="form-email" data-inputmask="" name="fields[email]" placeholder="Your Email" autocomplete="email">
+                                        <div class="text-center captcha-wrap">
+                                           <div class="g-recaptcha" id="gcaptcha2"></div>
+                                        </div>
+                                        <input type="hidden" name="ml-submit" value="1">
+                                        <button type="submit" class="send-btn" data-editfield="subscribe"><span class="fas fa-paper-plane"></span></button>
+                                        <img src="https://track.mailerlite.com/webforms/o/1676002/r8m8m0?v4a60e9ef938a7fa0240ac9ba567062cb" width="1" height="1" style="max-width:1px;max-height:1px;visibility:hidden;padding:0;margin:0;display:block" alt="." border="0">
+                                    </div>
+                                </form>
                               </div>
                          </div>
                      </div>
@@ -816,8 +806,8 @@
     <script> 
         // var verifyCallback = function(response) { if(response.length > 0) { $(".captcha > div.row > div.message_area").remove(); } };
         var myCallBack = function() { 
-            if($('#gcaptcha1').length > 0) { var captcha = grecaptcha.render('gcaptcha1', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'dark' }); }
-            if($('#gcaptcha2').length > 0) { var captcha = grecaptcha.render('gcaptcha2', { 'sitekey' : '6LfAiMcUAAAAAFJ4jZS0H7fm2DfpdJ5F71Uevf69', 'theme' : 'dark', 'size' : 'compact' }); }
+            if($('#gcaptcha1').length > 0) { var captcha = grecaptcha.render('gcaptcha1', { 'sitekey' : '6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD', 'theme' : 'dark' }); }
+            if($('#gcaptcha2').length > 0) { var captcha = grecaptcha.render('gcaptcha2', { 'sitekey' : '6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD', 'theme' : 'dark', 'size' : 'compact' }); }
         };
     </script>
     <!-- End reCaptcha -->
