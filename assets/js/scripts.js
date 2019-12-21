@@ -3,7 +3,7 @@
 
   var submitSuccess = function () {
     $.toast({
-      text: '<strong style="font-size: 16px;">Success</strong><p>Check your email for our confirmation message and click the subscribe button to be added to our mailing list! (Be sure to check your Spam!)</p>',
+      text: '<strong style="font-size: 16px;">Success</strong><p>You have been added to our newsletter!</p>',
       hideAfter: 10000,
       bgColor: 'green',
       icon: 'success',
