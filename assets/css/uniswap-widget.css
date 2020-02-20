@@ -1,216 +1,222 @@
 #uniswap-convert-section {
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: center;
-	justify-content: space-between;
-	width: 90%;
-	margin: 40px auto;
-	border-bottom: 1px solid #ddd;
-	border-top: 1px solid #ddd;
-	/*padding-top: 20px;*/
-	box-shadow: 0px 1px 7px #eee;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 40px auto;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  /*padding-top: 20px;*/
+  box-shadow: 0px 1px 7px #eee;
 }
 
 #uniswap-convert-section > .row {
-	width: 80%;
-	/*min-height: 80px;*/
-	display: flex;
-	margin: 20px auto;
-	margin-bottom: 10px;
+  width: 80%;
+  /*min-height: 80px;*/
+  display: flex;
+  margin: 20px auto;
+  margin-bottom: 10px;
 }
 
 #uniswap-convert-section > .row > .col-md-3 > h5 {
-	font-size: 13px;
-	color: #aaa;
-	text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  text-align: center;
 }
 
 #uniswap-convert-section > .row > .col-md-4 {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #buy-btn,
 #sell-btn {
-	width: 70px;
-	height: 40px;
-	margin: 5px;
+  width: 70px;
+  height: 40px;
+  margin: 5px;
 }
 
 #max-btn {
-	background: #6c757d;
-	color: #fff;
-	border: none;
-	border-right: 4px solid #e3e3e3;
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  border-right: 4px solid #e3e3e3;
 }
 
 #uniswap-form .form-group {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 #uniswap-form .input-group {
-	height: 40px;
+  height: 40px;
 }
 
 #uniswap-form .form-group label {
-	font-weight: bold;
-	margin-bottom: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 #swapModal .modal-footer {
-	padding: 20px 0px 20px 0px;
+  padding: 20px 0px 20px 0px;
 }
 
 #swapModal .modal-footer .row {
-	width: 100%;
-	font-size: 12px;
+  width: 100%;
+  font-size: 12px;
 }
 
 #swapModal .modal-footer .row .col-md-5 {
-	display: flex;
-	align-items: flex-start;
-	justify-content: space-evenly;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
 
 #swapModal .modal-footer p {
-	margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 #swapModal .modal-footer button {
-	min-width: 75px;
-	height: 40px;
+  min-width: 75px;
+  height: 40px;
 }
 
 #swap-amount {
-	width: 200px;
-	height: 40px;
+  width: 200px;
+  height: 40px;
 }
 
 #swap-btn {
-	border-radius: 50px;
-	margin-top: 30px;
-	background: rgb(244, 24, 47);
+  border-radius: 50px;
+  margin-top: 30px;
+  background: rgb(244, 24, 47);
 }
 
 #uniswap-convert-section .logo-container {
-	padding-top: 10px;
+  padding-top: 10px;
 }
 
 #uniswap-convert-section .shardus-logo {
-	width: 60px;
+  width: 60px;
 }
 
 #uniswap-convert-section .btn-primary {
-	background: rgb(244, 24, 47);
-	border: none;
+  background: rgb(244, 24, 47);
+  border: none;
 }
 
 #uniswap-convert-section input[type='text']:focus {
-	height: 40px;
+  height: 40px;
 }
 
 #buy-btn,
 #sell-btn {
-	border-radius: 8px;
-	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-	transition: all 300ms ease 0s;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  transition: all 300ms ease 0s;
 }
 
 .alert-unlock {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 #approvalModal .modal-title {
-	width: 100%;
+  width: 100%;
 }
 
 #unlock-token-btn {
-	display: none;
-	font-size: 12px;
-	text-transform: uppercase;
-	background: rgb(244, 24, 47);
-	color: #fff;
-	text-align: left;
-	margin-top: 10px;
-	border-radius: 10px;
+  display: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: rgb(244, 24, 47);
+  color: #fff;
+  text-align: left;
+  margin-top: 10px;
+  border-radius: 10px;
 }
 
 .alert {
-	display: none;
+  display: none;
 }
 
 #exchange-info {
-	width: 100%;
-	flex-direction: column;
+  width: 100%;
+  flex-direction: column;
 }
 
 .modal-header {
-	background: rgb(244, 24, 47);
+  background: rgb(244, 24, 47);
 }
 
 .modal-title {
-	color: #fff;
-	text-align: center;
-	margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .modal-body button {
-	border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 10px 10px 0px;
 }
 
 .modal-footer button {
-	border-radius: 5px;
+  border-radius: 5px;
 }
 
 #convert-btn:hover {
-	background-color: rgb(244, 24, 47) !important;
-	border: none !important;
+  background-color: rgb(244, 24, 47) !important;
+  border: none !important;
 }
 
 .uniswap-convert-section .col-md-3 > h5 {
-	text-align: center;
+  text-align: center;
 }
 .chart-column {
-	display: flex;
-	padding-top: 8px;
-	justify-content: center;
-	height: 100px;
+  display: flex;
+  padding-top: 8px;
+  justify-content: center;
+  height: 100px;
 }
 .chart-column a:focus {
-	color: #ed1b24;
+  color: #ed1b24;
 }
 .chart-column a:hover {
-	color: #cf2b3c;
+  color: #cf2b3c;
 }
 #ULT-price-dai,
 #ULT-price-eth {
-	text-align: center;
+  text-align: center;
 }
 
 #uniswap-link {
-	text-align: center;
-	font-size: 11px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.gitlab-source-container .gitlab-source {
+  text-align: right;
+  font-size: 11px;
+  padding-right: 15px;
 }
 
 @media screen and (max-width: 600px) {
-	#uniswap-convert-section > .row {
-		display: flex;
-		flex-direction: column;
-	}
-	#uniswap-convert-section .logo-container {
-		padding-top: 10px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 15px;
-	}
-	.buy-sell-button-container {
-		display: flex;
-		justify-content: space-evenly;
-	}
+  #uniswap-convert-section > .row {
+    display: flex;
+    flex-direction: column;
+  }
+  #uniswap-convert-section .logo-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .buy-sell-button-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
