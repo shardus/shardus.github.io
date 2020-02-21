@@ -1755,6 +1755,9 @@ let UniswapConvertWidget = async function(config) {
         }
         return false;
       });
+      console.log(inputOptionsForTokens)
+      console.log(G.ownedTokenList.length)
+      console.log(G)
     }
     inputOptionsForTokens = inputOptionsForTokens.map(token => {
       return {
@@ -1867,7 +1870,6 @@ let UniswapConvertWidget = async function(config) {
     G.exchangeContracts = {};
     G.tokenContracts = {};
     G.exchangeAddresses = {};
-    G.ownedTokenList = [];
 
     for (let i = 0; i < G.tokenList.length; i += 1) {
       const token = G.tokenList[i];
