@@ -1667,6 +1667,8 @@ let UniswapConvertWidget = async function(config) {
       const res = await axios.get(
         `${config.mainConfig.mainServerUrl}/api/tokenHolding?accountAddress=${accountAddress}`
       );
+      console.log(`${config.mainConfig.mainServerUrl}/api/tokenHolding?accountAddress=${accountAddress}`)
+      console.log(res.data)
       return res.data.result;
     }
   }
@@ -1745,10 +1747,12 @@ let UniswapConvertWidget = async function(config) {
 
     if (selector === ".input-token-dropdown") {
       inputOptionsForTokens = inputOptionsForTokens.filter(token => {
-        const isOwnedToken = G.ownedTokenList.find(
-          t => t.tokenAddress.toLowerCase() === token.tokenAddress.toLowerCase()
-        );
-        if (isOwnedToken) return true;
+        if (G.ownedTokenList.length > 0) {
+          const isOwnedToken = G.ownedTokenList.find(
+            t => t.tokenAddress.toLowerCase() === token.tokenAddress.toLowerCase()
+          );
+          if (isOwnedToken) return true;
+        }
         return false;
       });
     }
@@ -1859,9 +1863,11 @@ let UniswapConvertWidget = async function(config) {
     G.summaryList = await getSummaryList();
     G.tokenList = await getTokenList();
     G.ownedTokenList = await getOwnedTokenList();
+    console.log(G)
     G.exchangeContracts = {};
     G.tokenContracts = {};
     G.exchangeAddresses = {};
+    G.ownedTokenList = [];
 
     for (let i = 0; i < G.tokenList.length; i += 1) {
       const token = G.tokenList[i];
