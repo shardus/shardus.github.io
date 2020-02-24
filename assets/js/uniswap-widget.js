@@ -1650,13 +1650,22 @@ let UniswapConvertWidget = async function(config) {
   // initialise the app
   init();
 
+  async function prepareOwnedTokenList () {
+    G.ownedTokenList = await getOwnedTokenList();
+    initialiseDropdown(".input-token-dropdown");
+    initialiseDropdown(".output-token-dropdown");
+    G.isDropdownsPrepared = true
+  }
+
   // FUNCTIONS
-  function initiateMetamask() {
-    console.log("Requesting metamask...");
+  async function initiateMetamask() {
     if (!window.ethereum) {
+      console.log("Requesting metamask...");
       $("#noAccountModal").modal("show");
     }
-    window.ethereum.enable();
+    await window.ethereum.enable();
+    console.log("Metamask is initialise");
+    if(!G.isDropdownsPrepared) await prepareOwnedTokenList()
   }
 
   async function getAccountAddress() {
@@ -1865,10 +1874,6 @@ let UniswapConvertWidget = async function(config) {
   }
 
   async function init() {
-    // initiateMetamask()
-    // G.exchangeAddresses = tokenDB.exchangeAddresses
-    // tokenSymbols = Object.keys(exchangeAddresses)
-
     G.summaryList = await getSummaryList();
     G.tokenList = await getTokenList();
     console.log(G);
@@ -2045,14 +2050,18 @@ let UniswapConvertWidget = async function(config) {
 
     $("#sell-btn, #buy-btn").on("click", async e => {
       e.stopPropagation();
-      initiateMetamask();
+      
       let isUserLoggedIn = await isLoggedIn();
+      
       if (!isUserLoggedIn) {
         $("#noAccountModal").modal("show");
+        initiateMetamask();
       } else {
+        if(!G.isDropdownsPrepared) await prepareOwnedTokenList()
         let action = $(e.target).attr("data-action");
         console.log(action);
         renderSwapModal(action);
+
       }
     });
 
@@ -2803,8 +2812,8 @@ let UniswapConvertWidget = async function(config) {
       selectHTML += `<a class="dropdown-item" token-name="${G.tokenList[i].symbol}" href="#">${G.tokenList[i].symbol}</a>`;
     }
     $("#uniswap-form .dropdown-menu").html(selectHTML);
-    initialiseDropdown(".input-token-dropdown");
-    initialiseDropdown(".output-token-dropdown");
+    // initialiseDropdown(".input-token-dropdown");
+    // initialiseDropdown(".output-token-dropdown");
     setTimeout(() => {
       updateMainTokenPrice();
       setInterval(() => {
