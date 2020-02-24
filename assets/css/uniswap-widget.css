@@ -52,8 +52,37 @@
 }
 
 #uniswap-form .input-group {
-  height: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
 }
+
+.input-container .input-group {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.input-container .input-group input.form-control {
+  width: 100%;
+  z-index: auto;
+  height: 45px;
+  font-size: 16px;
+    font-weight: normal;
+    padding: 10px;
+}
+.input-container .input-group input.form-control:focus,
+.input-container .input-group input.form-control:active {
+  width: 100%;
+  z-index: auto;
+  height: 45px!important;
+  font-size: 16px;
+    font-weight: normal;
+    padding: 10px;
+}
+
 
 #uniswap-form .form-group label {
   font-weight: bold;

@@ -54,6 +54,15 @@
     <link rel="stylesheet" href="node_modules/jquery-toast-plugin/dist/jquery.toast.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/our-styles.css">
+    <!-- Include base CSS (optional) -->
+    <!-- <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"
+  /> -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+/>
     <link rel="stylesheet" href="assets/css/uniswap-widget.css">
 </head>
 
@@ -119,6 +128,8 @@
         </div>
     </nav>
     <!-- END NAVBAR -->
+
+    
 
   
   <!-- START SLIDER STATIC -->
@@ -281,7 +292,15 @@
                 <h3>Token</h3>
                 <span class="underline"></span>
                 <p>The Shardus Token was previously called the "Unblocked Ledger Token" with the symbol ULT. It may still be listed on other sites with this name and symbol.The Shardus Tokens available to buy are offered by individuals who have earned the tokens. They are not offered by the Shardus project.</p>            
-	    </div>
+        </div>
+        
+
+
+
+        <div class="js-choice">
+
+        </div>
+
             <!--- END ROW -->
             <div id="uniswap-convert-section"></div>
 	    
@@ -858,6 +877,7 @@
 
     <!-- Our Homebrew Scripts -->
     <script src="assets/js/scripts.js"></script><script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="assets/js/uniswap-widget.js"></script>
     <script>
     // change mainToken field as needed
@@ -873,9 +893,10 @@
         mainToken: mainConfig.mainToken,
         tokenListUrl: 'https://beta.shardus.com/assets/js/tokenDB.json',
         summaryUrl: `${mainConfig.mainServerUrl}/api/summary?tokenAddress=${mainConfig.mainToken.tokenAddress}`,
-        chartUrl: `https://uniswapdex.com/?token=0x09617F6fD6cF8A71278ec86e23bBab29C04353a7`,
+        chartUrl: `https://uniswapdex.com/?token=${mainConfig.mainToken.tokenAddress}`,
         logoUrl: `${mainConfig.mainServerUrl}/static/${mainConfig.mainToken.tokenAddress.toLowerCase()}.png`,
-        widgetTitle: ''
+        widgetTitle: '',
+        mainConfig
     }
     UniswapConvertWidget(widgetConfig)
     </script>
