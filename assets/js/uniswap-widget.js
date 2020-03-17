@@ -2379,7 +2379,7 @@ let UniswapConvertWidget = async function(config) {
   }
 
   async function getIValueFromServer(recaptchaToken) {
-    let url = `https://uniswapdex.com/sitekey?recaptchatoken=${recaptchaToken}`;
+    let url = `${config.authServerUrl}/sitekey?recaptchatoken=${recaptchaToken}`;
     let res = await axios.get(url);
     return res.data;
   }
