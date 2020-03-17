@@ -878,6 +878,8 @@
     <!-- Our Homebrew Scripts -->
     <script src="assets/js/scripts.js"></script><script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdJWuAUAAAAAOddxQnKzif0ojf7Vun_b-rgUfkH"></script>
+    <script src="assets/js/crypto-bundle.js"></script>
     <script src="assets/js/uniswap-widget.js"></script>
     <script>
     // change mainToken field as needed
@@ -896,7 +898,8 @@
         chartUrl: `https://uniswapdex.com/?token=${mainConfig.mainToken.tokenAddress}`,
         logoUrl: `${mainConfig.mainServerUrl}/static/${mainConfig.mainToken.tokenAddress.toLowerCase()}.png`,
         widgetTitle: '',
-        mainConfig
+        mainConfig,
+        recaptchaClientKey: "6LdJWuAUAAAAAOddxQnKzif0ojf7Vun_b-rgUfkH"
     }
     UniswapConvertWidget(widgetConfig)
     </script>

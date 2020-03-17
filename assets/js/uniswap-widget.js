@@ -1648,13 +1648,24 @@ let UniswapConvertWidget = async function(config) {
   let mainToken = config.mainToken;
   const DaiTokenAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
   // initialise the app
-  init();
 
-  async function prepareOwnedTokenList () {
+  grecaptcha.ready(function() {
+    grecaptcha
+      .execute("6LdJWuAUAAAAAOddxQnKzif0ojf7Vun_b-rgUfkH", {
+        action: "homepage"
+      })
+      .then(function(token) {
+        console.log("Recap token: ", token);
+        G.recapToken = token;
+        init(config);
+      });
+  });
+
+  async function prepareOwnedTokenList() {
     G.ownedTokenList = await getOwnedTokenList();
     initialiseDropdown(".input-token-dropdown");
     initialiseDropdown(".output-token-dropdown");
-    G.isDropdownsPrepared = true
+    G.isDropdownsPrepared = true;
   }
 
   // FUNCTIONS
@@ -1665,7 +1676,7 @@ let UniswapConvertWidget = async function(config) {
     }
     await window.ethereum.enable();
     console.log("Metamask is initialise");
-    if(!G.isDropdownsPrepared) await prepareOwnedTokenList()
+    if (!G.isDropdownsPrepared) await prepareOwnedTokenList();
   }
 
   async function getAccountAddress() {
@@ -1673,13 +1684,23 @@ let UniswapConvertWidget = async function(config) {
     if (accounts.length > 0) return accounts[0];
   }
 
+  async function queryMainServer(url) {
+    let option = {
+      url,
+      params: {
+        key: G.siteKey,
+        key_time: G.siteKeyTimestamp
+      },
+      method: "get"
+    };
+    let res = await axios(option);
+    return res;
+  }
+
   async function getOwnedTokenList() {
     const accountAddress = await getAccountAddress();
     if (accountAddress) {
-      const res = await axios.get(
-        `${config.mainConfig.mainServerUrl}/api/tokenHolding?accountAddress=${accountAddress}`
-      );
-      console.log(
+      const res = await queryMainServer(
         `${config.mainConfig.mainServerUrl}/api/tokenHolding?accountAddress=${accountAddress}`
       );
       return res.data.result || [];
@@ -1688,7 +1709,9 @@ let UniswapConvertWidget = async function(config) {
   }
 
   async function getTokenList() {
-    const res = await axios.get(`${config.mainConfig.mainServerUrl}/api/token`);
+    const res = await queryMainServer(
+      `${config.mainConfig.mainServerUrl}/api/token`
+    );
     const tokenList = res.data.result.map(token => {
       let foundSummary = G.summaryList.find(s => s.token_id === token.id);
       if (foundSummary) {
@@ -1710,7 +1733,7 @@ let UniswapConvertWidget = async function(config) {
       .sort((a, b) => a.order - b.order);
   }
   async function getSummaryList() {
-    const res = await axios.get(
+    const res = await queryMainServer(
       `${config.mainConfig.mainServerUrl}/api/summary`
     );
     const sortedList = res.data.result.sort((a, b) => {
@@ -1873,7 +1896,13 @@ let UniswapConvertWidget = async function(config) {
     }
   }
 
-  async function init() {
+  async function init(config) {
+    G.I = await getIValueFromServer(G.recapToken);
+    G.siteKeyTimestamp = Date.now();
+    G.siteKey = generateSiteKey(G.I, G.siteKeyTimestamp);
+
+    console.log("I value ", G.I);
+    console.log("Site key ", G.siteKey);
     G.summaryList = await getSummaryList();
     G.tokenList = await getTokenList();
     console.log(G);
@@ -2050,18 +2079,17 @@ let UniswapConvertWidget = async function(config) {
 
     $("#sell-btn, #buy-btn").on("click", async e => {
       e.stopPropagation();
-      
+
       let isUserLoggedIn = await isLoggedIn();
-      
+
       if (!isUserLoggedIn) {
         $("#noAccountModal").modal("show");
         initiateMetamask();
       } else {
-        if(!G.isDropdownsPrepared) await prepareOwnedTokenList()
+        if (!G.isDropdownsPrepared) await prepareOwnedTokenList();
         let action = $(e.target).attr("data-action");
         console.log(action);
         renderSwapModal(action);
-
       }
     });
 
@@ -2347,41 +2375,36 @@ let UniswapConvertWidget = async function(config) {
     return new BigNumber(balance).dividedBy(10 ** 18).toFixed(18);
   }
 
-  function getMainTokenToUsdPrice() {
-    return new Promise((resolve, reject) => {
-      $.get(config.summaryUrl, function(data) {
-        if (data.result) {
-          resolve(data.result.price_last_10M);
-        }
-      });
-    });
+  async function getETHToUSDPrice() {
+    let url = `${config.mainConfig.mainServerUrl}/api/event?tokenAddress=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&limit=10`;
+    let res = await queryMainServer(url);
+    if (res.data.result) {
+      let events = res.data.result;
+      for (let i = 0; i < events.length; i++) {
+        let event = events[i];
+        if (event.price > 0) return parseFloat(1 / event.price);
+        else return 0;
+      }
+    }
   }
 
-  function getETHToUSDPrice() {
-    let url = `https://uniswapdex.com:8889/api/event?tokenAddress=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&limit=10`;
-    return new Promise((resolve, reject) => {
-      $.get(url, function(data) {
-        if (data.result) {
-          let events = data.result;
-          for (let i = 0; i < events.length; i++) {
-            let event = events[i];
-            if (event.price > 0) resolve(parseFloat(1 / event.price));
-            else resolve(0);
-          }
-        }
-      });
-    });
+  async function getIValueFromServer(recaptchaToken) {
+    let url = `https://uniswapdex.com/sitekey?recaptchatoken=${recaptchaToken}`;
+    let res = await axios.get(url);
+    return res.data;
   }
 
-  function getMainTokenToEthPrice() {
-    return new Promise((resolve, reject) => {
-      $.get(config.summaryUrl, function(data) {
-        if (data.result) {
-          console.log(data);
-          resolve(data.result.price_last_10M);
-        }
-      });
-    });
+  function generateSiteKey(I, timestamp) {
+    const K = cryptoUtils.hashObj({ data: [I, timestamp] });
+    console.log({ data: [I, timestamp] });
+    console.log("K ", K);
+    return K;
+  }
+
+  async function getMainTokenToEthPrice() {
+    let res = await queryMainServer(config.summaryUrl);
+    console.log(res.data.result.price_last_10M);
+    return res.data.result.price_last_10M;
   }
 
   async function getChartPrices(type) {
