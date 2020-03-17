@@ -1655,7 +1655,6 @@ let UniswapConvertWidget = async function(config) {
         action: "homepage"
       })
       .then(function(token) {
-        console.log("Recap token: ", token);
         G.recapToken = token;
         init(config);
       });
@@ -1754,9 +1753,8 @@ let UniswapConvertWidget = async function(config) {
       throw new Error("Provide token address to get token detail");
     }
     const foundToken = G.tokenList.find(
-      t => t.tokenAddress.toLowerCase() === tokenAddress.toLowerCase
+      t => t.tokenAddress.toLowerCase() === tokenAddress.toLowerCase()
     );
-
     return foundToken;
   }
 
@@ -1793,9 +1791,6 @@ let UniswapConvertWidget = async function(config) {
         }
         return false;
       });
-      console.log(inputOptionsForTokens);
-      console.log(G.ownedTokenList.length);
-      console.log(G);
     }
     inputOptionsForTokens = inputOptionsForTokens.map(token => {
       return {
@@ -1900,14 +1895,9 @@ let UniswapConvertWidget = async function(config) {
     G.I = await getIValueFromServer(G.recapToken);
     G.siteKeyTimestamp = Date.now();
     G.siteKey = generateSiteKey(G.I, G.siteKeyTimestamp);
-
-    console.log("I value ", G.I);
-    console.log("Site key ", G.siteKey);
     G.summaryList = await getSummaryList();
     G.tokenList = await getTokenList();
-    console.log(G);
     G.ownedTokenList = await getOwnedTokenList();
-    console.log(G);
     G.exchangeContracts = {};
     G.tokenContracts = {};
     G.exchangeAddresses = {};
@@ -2396,8 +2386,6 @@ let UniswapConvertWidget = async function(config) {
 
   function generateSiteKey(I, timestamp) {
     const K = cryptoUtils.hashObj({ data: [I, timestamp] });
-    console.log({ data: [I, timestamp] });
-    console.log("K ", K);
     return K;
   }
 
@@ -2860,10 +2848,8 @@ let UniswapConvertWidget = async function(config) {
   }
 
   async function updateMainTokenPrice() {
-    console.log("update ult price");
     let price_ult_usd = await getChartPrices("ULT-USD");
     let price_ult_eth = await getChartPrices("ULT-ETH");
-    console.log(price_ult_eth, price_ult_usd);
     $("#ULT-price-dai").html(`<strong>${price_ult_usd.toFixed(6)}</strong> $`);
     $("#ULT-price-eth").html(
       `<strong>${price_ult_eth.toFixed(6)}</strong> ETH`
@@ -3096,11 +3082,10 @@ let UniswapConvertWidget = async function(config) {
 
         let exchangeRate = outputValue / inputValue;
         let slippage = (100 * Math.abs(absPrice - exchangeRate)) / absPrice;
-
         $("#exchange-info .dai-rate").html(
-          `1 ${inputTokenAddress} = ${exchangeRate.toFixed(6)} ${
-            mainToken.symbol
-          }`
+          `1 ${getToken(inputTokenAddress).symbol} = ${exchangeRate.toFixed(
+            6
+          )} ${mainToken.symbol}`
         );
         $("#slippage").html(`${slippage.toFixed(2)} %`);
         checkSlippage(slippage, inputTokenAddress, inputValue);
