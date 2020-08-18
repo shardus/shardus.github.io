@@ -10,8 +10,8 @@ title: Shardus
 email: info@shardus.com
 description: > # this means to ignore newlines until "baseurl:"
   Shardus is building distributed ledger software to remedy the problems of traditional blockchains -- scalability, decentralization and efficiency. 
-  The technology being developed will use compute and state sharding to accommodate billions of daily active users, allowing for global-scale decentralized applications. 
-  The first application built with this technology will be a payment network and coin called Liberdus.
+  The technology being developed will use compute and state sharding to accommodate billions of daily active users, allowing for global-scale decentralized networks. 
+  The first network to be launched using this technology will be a payment network and coin called Liberdus.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://shardus.com" # the base hostname & protocol for your site
 thumbnail: "assets/img/shardus-thumb-04-2019-1-91.png"
