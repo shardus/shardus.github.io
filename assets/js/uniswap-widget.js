@@ -2602,194 +2602,199 @@ let UniswapConvertWidget = async function (config) {
 
   function drawUI (config) {
     const baseWidgetTemplate = `
-        <h3 id="widget-title"></h3>
-        <div class="row">
-            <div class="col-md-3 logo-container">
-                <img class="shardus-logo" src="${config.logoUrl}" alt="shardus-logo">
-                <span>${config.mainToken.symbol}</span>
-            </div>
-            <div class="col-md-3">
-                <h5>Current Price</h5>
-                <p id="ULT-price-dai">--</p>
-                <p id="ULT-price-eth">--</p>
-            </div>
-            
-            <div class="col-md-3">
-                <h5>Price Chart</h5>
-                <div class="chart-column">
+    <h3 id="widget-title"></h3>
+    <div class="row">
+        <div class="col-md-3 logo-container">
+            <img class="shardus-logo" src="${config.logoUrl}" alt="shardus-logo">
+            <span>${config.mainToken.symbol}</span>
+        </div>
+        <div class="col-md-3">
+            <h5>Current Price</h5>
+            <p id="ULT-price-dai">--</p>
+            <p id="ULT-price-eth">--</p>
+        </div>
+    
+        <div class="col-md-3">
+            <h5>Price Chart</h5>
+            <div class="chart-column">
                 <a href="${config.chartUrl}" target="_blank"><i class="fas fa-chart-line fa-3x"></i></a>
-                </div>
             </div>
-            
-            <div class="col-md-3">
-                <div>
-                    <p id="uniswap-link">Powered By <a href="https://uniswapdex.com" target="_blank">UniswapDEX</a></p>
-                </div>
-                <div class="buy-sell-button-container">
-                    <button type="button" class="btn btn-primary" data-target="#swapModal" data-toggle="modal" data-action="buy" id="buy-btn">Buy</button>
-                    <button type="button" class="btn btn-primary" data-target="#swapModal" data-toggle="modal" data-action="sell" id="sell-btn">Sell</button>
-                </div>
-                <div class="modal fade" id="swapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
+        </div>
+    
+        <div class="col-md-3">
+            <div>
+                <p id="uniswap-link">Powered By <a href="https://uniswapdex.com" target="_blank">UniswapDEX</a></p>
+            </div>
+            <div class="buy-sell-button-container">
+                <button type="button" class="btn btn-primary" data-target="#swapModal" data-toggle="modal" data-action="buy"
+                    id="buy-btn">Buy</button>
+                <button type="button" class="btn btn-primary" data-target="#swapModal" data-toggle="modal"
+                    data-action="sell" id="sell-btn">Sell</button>
+            </div>
+            <div class="modal fade" id="swapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Convert ULT using ETH or ERC20 TOkens</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                          <div class="alert alert-warning alert-dismissible alert-unlock hide" role="alert">
-                              Please unlock your token to allow Metamask wallet to spend
-                              <a class="btn" id="unlock-token-btn">Unlock</a>
-                          </div>
-                          <div class="alert alert-primary alert-dismissible alert-wait hide" role="alert">
-                              Please submit your approval transaction and wait a few seconds. We will check if your submitted approval transaction is confirmed on <strong>Ethereum Network</strong>
-                          </div>
-                          <div class="alert alert-success alert-dismissible alert-approved hide" role="alert">
-                              Your approval to spend token is successfully confirmed !
-                          </div>
-                          <div class="alert alert-info alert-dismissible alert-check hide" role="alert">
-                              Check your wallet to Confirm or Cancel the transaction
-                          </div>
-                          <div class="alert alert-success alert-dismissible alert-submitted hide" role="alert">
-                              Transaction submitted.
-                          </div>
-                          <div class="alert alert-warning alert-dismissible alert-high-slippage hide" role="alert">
-                              Please reduce the amount so that the <strong>slippage</strong> is less than 10%
-                          </div>
-
-                          <div class="input-container">
-                          <div class="input-group">
-                              <label for=""><strong>From</strong></label>
-                              <select id="inputCurrency" class="input-token-dropdown">
-                                
-                              </select>
-                          </div>
-                          <div class="input-group">
-                              <label for="">Enter amount</label>
-                              <input
-                                type="text"
-                                class="form-control"
-                                aria-label="inputValue"
-                                id="inputValue"
-                                name="inputValue"
-                                autocomplete="off"
-                              />
-                          </div>
-                       </div>                        
-             <div class="input-container">
-                <div class="input-group">
-                    <label for=""><strong>To</strong></label>
-                    <select id="outputCurrency" class="output-token-dropdown">     
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="">Enter amount</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      aria-label="outputValue"
-                      id="outputValue"
-                      name="outputValue"
-                      autocomplete="off"
-                    />
-                </div>
-             </div>
-          </div>
-                      <div class="modal-footer">
-                        <div class="row">
-                            <div class="col-md-5" id="exchange-info">
-                                <div><strong>Rate</strong></div>
-                                <div>
-                                    <p class="dai-rate">1 ULT = <span class="unit-ult-dai">0.01</span> DAI</p>
-                                    <p class="eth-rate">1 ULT = <span class="unit-ult-eth">0.00083</span> ETH</p>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Convert ULT using ETH or ERC20 TOkens</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-warning alert-dismissible alert-unlock hide" role="alert">
+                                Please unlock your token to allow Metamask wallet to spend
+                                <a class="btn" id="unlock-token-btn">Unlock</a>
+                            </div>
+                            <div class="alert alert-primary alert-dismissible alert-wait hide" role="alert">
+                                Please submit your approval transaction and wait a few seconds. We will check if your
+                                submitted approval transaction is confirmed on <strong>Ethereum Network</strong>
+                            </div>
+                            <div class="alert alert-success alert-dismissible alert-approved hide" role="alert">
+                                Your approval to spend token is successfully confirmed !
+                            </div>
+                            <div class="alert alert-info alert-dismissible alert-check hide" role="alert">
+                                Check your wallet to Confirm or Cancel the transaction
+                            </div>
+                            <div class="alert alert-success alert-dismissible alert-submitted hide" role="alert">
+                                Transaction submitted.
+                            </div>
+                            <div class="alert alert-warning alert-dismissible alert-high-slippage hide" role="alert">
+                                Please reduce the amount so that the <strong>slippage</strong> is less than 10%
+                            </div>
+    
+                            <div class="input-container">
+                                <div class="input-group">
+                                    <label for=""><strong>From</strong></label>
+                                    <select id="inputCurrency" class="input-token-dropdown">
+    
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Enter amount</label>
+                                    <input type="text" class="form-control" aria-label="inputValue" id="inputValue"
+                                        name="inputValue" autocomplete="off" />
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <p><strong>Slippage</strong></p>
-                                <p id="slippage">2.5 %</p>
-                            </div>
-                            <div class="col-md-5">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" id="convert-btn" class="btn btn-primary">Convert</button>
+                            <div class="input-container">
+                                <div class="input-group">
+                                    <label for=""><strong>To</strong></label>
+                                    <select id="outputCurrency" class="output-token-dropdown">
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="">Enter amount</label>
+                                    <input type="text" class="form-control" aria-label="outputValue" id="outputValue"
+                                        name="outputValue" autocomplete="off" />
+                                </div>
                             </div>
                         </div>
-                      </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-5" id="exchange-info">
+                                    <div><strong>Rate</strong></div>
+                                    <div>
+                                        <p class="dai-rate">1 ULT = <span class="unit-ult-dai">0.01</span> DAI</p>
+                                        <p class="eth-rate">1 ULT = <span class="unit-ult-eth">0.00083</span> ETH</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <p><strong>Slippage</strong></p>
+                                    <p id="slippage">2.5 %</p>
+                                </div>
+                                <div class="col-md-5">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" id="convert-btn" class="btn btn-primary">Convert</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <div class="gitlab-source-container">
-                    <p class="gitlab-source">Source on <a href="https://gitlab.com/shardus/uniswap/uniswap-widget" target="_blank">Gitlab</a></p>
-                </div>
-                <!--No Account modal-->
-                <div class="modal fade" tabindex="-1" role="dialog" id="noAccountModal">
-                  <div class="modal-dialog" role="document">
+            </div>
+            <div class="gitlab-source-container">
+                <p class="gitlab-source">Source on <a href="https://gitlab.com/shardus/uniswap/uniswap-widget"
+                        target="_blank">Gitlab</a></p>
+            </div>
+            <!--No Account modal-->
+            <div class="modal fade" tabindex="-1" role="dialog" id="noAccountModal">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">No Metamask Wallet Found</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <p>Please login to Metamask Wallet to buy and sell ULT tokens. If you don't have a Metamask wallelt account, you can create one from <a href="https://metamask.io/">metamask.io/</a></p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title">No Metamask Wallet Found</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Please login to Metamask Wallet to buy and sell ULT tokens. If you don't have a Metamask
+                                wallelt account, you can create one from <a href="https://metamask.io/">metamask.io/</a></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <!--submitted modal-->
-                <div class="modal fade" tabindex="-1" role="dialog" id="submittedModal">
-                  <div class="modal-dialog" role="document">
+            </div>
+            <!--submitted modal-->
+            <div class="modal fade" tabindex="-1" role="dialog" id="submittedModal">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Transaction Submitted</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <p>Your transaction is successfully submitted to Ethereum Network. Click link below to view your transaction on etherscan.io</p>
-                        <a id="txUrl" target="_blank" rel="noopener noreferrer" href="https://etherscan.io/tx/0x7b51443ce4803bd4b8fa1f5b9f20af4b64f4ff1856d2e63b851a15bec1b9cb3e">View tx on etherscan.io</a>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Transaction Submitted</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Your transaction is successfully submitted to Ethereum Network. Click link below to view your
+                                transaction on etherscan.io</p>
+                            <a id="txUrl" target="_blank" rel="noopener noreferrer"
+                                href="https://etherscan.io/tx/0x7b51443ce4803bd4b8fa1f5b9f20af4b64f4ff1856d2e63b851a15bec1b9cb3e">View
+                                tx on etherscan.io</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div>
         </div>
-        <!-- Approval Modal -->
-        <div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalModal" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+    </div>
+    <a class="add-ult-to-metamask">
+      <img src="https://docs.metamask.io/metamask-fox.svg" width="20" />
+      Add ULT to Metamask Wallet
+    </a>
+    <!-- Approval Modal -->
+    <div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Unlock Your Token</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                 <p>Please unlock your token to allow Metamask Wallet to spend. Minimum allowance is <strong>input amount to convert + extra 10% </strong>. If you intend to convert more tokens in the future, please fill in higer allowance so that you can avoid extra gas fees caused by future approval transactions</p>
-                 <form>
-                  <div class="form-group">
-                    <label for="approved-amount" class="col-form-label">Approved Amount : <span>0.123 DAI</span> (mininum)</label>
-                    <input type="text" class="form-control" id="approved-amount">
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="approve-btn">Approve</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Unlock Your Token</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please unlock your token to allow Metamask Wallet to spend. Minimum allowance is <strong>input amount
+                            to convert + extra 10% </strong>. If you intend to convert more tokens in the future, please
+                        fill in higer allowance so that you can avoid extra gas fees caused by future approval transactions
+                    </p>
+                    <form>
+                        <div class="form-group">
+                            <label for="approved-amount" class="col-form-label">Approved Amount : <span>0.123 DAI</span>
+                                (mininum)</label>
+                            <input type="text" class="form-control" id="approved-amount">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="approve-btn">Approve</button>
+                </div>
             </div>
-          </div>
         </div>
-        `
+    </div>`
 
     $('#uniswap-convert-section').html(baseWidgetTemplate)
     $('#widget-title').html(config.widgetTitle)
@@ -2801,6 +2806,11 @@ let UniswapConvertWidget = async function (config) {
     $('#uniswap-form .dropdown-menu').html(selectHTML)
     // initialiseDropdown(".input-token-dropdown");
     // initialiseDropdown(".output-token-dropdown");
+    document
+      .querySelector('.add-ult-to-metamask')
+      .addEventListener('click', e => {
+        addTokenToMetamask()
+      })
     setTimeout(() => {
       updateMainTokenPrice()
       setInterval(() => {
