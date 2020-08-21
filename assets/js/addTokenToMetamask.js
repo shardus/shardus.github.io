@@ -1,7 +1,7 @@
 const tokenAddress = '0x09617f6fd6cf8a71278ec86e23bbab29c04353a7'
 const tokenSymbol = 'ULT'
 const tokenDecimals = 18
-const tokenImage = 'https://shardus.com/assets/img/logo.svg'
+const tokenImage = 'https://shardus.com/assets/img/logo_512.png'
 
 let wasAdded = false
 
