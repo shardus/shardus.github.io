@@ -30,22 +30,17 @@
     title: Developer
     photo: derrick.jpg
     linkedin: https://www.linkedin.com/in/derrickfarris/
-  - 
-    name: Dmitry Yakov
-    title: Developer
-    photo: dmitry.jpg
-    linkedin: https://www.linkedin.com/in/dmitry-yakov-2a36a6155/
   -
     name: Erik Xavier
     title: Developer
     photo: erik.jpg
     linkedin: https://www.linkedin.com/in/erik-xavier-de-alvarenga-monteiro-383a84106/
--
   - 
     name: Gani Padela
     title: Developer
     photo: gani.jpg
     linkedin: https://linkedin.com/in/gani-padela-069876109/
+-
   - 
     name: Kyle Shifflett
     title: Developer
@@ -61,12 +56,17 @@
     title: Developer
     photo: omar.jpg
     linkedin: https://www.linkedin.com/in/omarsyed1/
--
   -
     name: Ryuhei Matsuda
     title: Developer
     photo: ryuhei.jpg
     linkedin: https://www.linkedin.com/in/ryuhei-matsuda-87b467166/
+-
+  -
+    name: Roy King
+    title: Developer
+    photo: roy.jpg
+    linkedin: https://www.linkedin.com/in/roy-king-7988b0167/
   - 
     name: Salman Ahmad
     title: Developer
@@ -88,6 +88,11 @@
     title: Partnership Manager
     photo: GregHemmer.jpeg
     linkedin: https://www.linkedin.com/in/greg-hemmer/
+  - 
+    name: Shahzad Nathani
+    title: Head of Business Development
+    photo: shahzad.jpg
+    linkedin: https://www.linkedin.com/in/shahzad-nathani-mba-pmp-technologist-educator-1a1182/
   - 
     name: Marc Mattox
     title: Community Relations
