@@ -63,7 +63,7 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
 />
-    <link rel="stylesheet" href="assets/css/uniswap-widget.css">
+    <!-- link rel="stylesheet" href="assets/css/uniswap-widget.css" -->
 </head>
 
 <body id="page-top">
@@ -302,14 +302,16 @@
         
 
 
-
+<!--
         <div class="js-choice">
-
         </div>
-
+-->
             <!--- END ROW -->
-            <div id="uniswap-convert-section"></div>
-	    
+<!--
+	<div id="uniswap-convert-section"></div>
+-->	    
+	<script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js"></script>
+<coingecko-coin-ticker-widget  coin-id="shardus" currency="usd" locale="en"></coingecko-coin-ticker-widget>
 		
             <div class="section-title text-center token-section">
                 <p>The Shardus Token is an ERC-20 compliant token. The token is distributed for direct services contributed to the Shardus project and used for <a href="https://github.com/Shardus/shardus.github.io/wiki/Shardus-Token" target=_blank>licensing the Shardus software</a>. If you want to earn Shardus tokens, please <a href="https://docs.google.com/forms/d/1VTvBZey869k7V3tDoLswy8dQ5MeNztPokBvq-k4R2lA/edit" target=_blank>let us know</a> what you can do for the project. A report of <a href="https://github.com/Shardus/shardus.github.io/wiki/Distribution-Report">distributed tokens</a> is published each month. 
@@ -920,6 +922,7 @@
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LdJWuAUAAAAAOddxQnKzif0ojf7Vun_b-rgUfkH"></script>
     <script src="assets/js/crypto-bundle.js"></script>
+<!--
     <script src="assets/js/uniswap-widget.js"></script>
     <script src="assets/js/addTokenToMetamask.js"></script>
     <script>
@@ -945,7 +948,8 @@
     }
     UniswapConvertWidget(widgetConfig)
     </script>
-
+-->
+	
 </body>
 
 </html>
