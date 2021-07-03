@@ -126,6 +126,13 @@ body {
   background-color: #ed1b24;
   border-color: #ed1b24;
 }
+.btn-home:hover {
+  border-color: #fff;
+}
+
+.btn-light:hover {
+  border-color: #333;
+}
 
 .service-box-three:hover h3 a,
 .service-box-four:hover h3 a{
@@ -388,4 +395,9 @@ div#uniswap-convert-section {
 
 .captcha-wrap {
   margin-top: 20px;
+}
+
+/* Disable ReCaptcha Badge on the Bottom Right */
+.grecaptcha-badge { 
+  visibility: hidden;
 }
