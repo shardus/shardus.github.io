@@ -1,0 +1,83 @@
+<!-- reCaptcha -->
+<script>
+  // var verifyCallback = function(response) { if(response.length > 0) { $(".captcha > div.row > div.message_area").remove(); } };
+  var myCallBack = function () {
+    if ($('#gcaptcha1').length > 0) {
+      var captcha = grecaptcha.render('gcaptcha1', { sitekey: '6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD', theme: 'dark' });
+    }
+    if ($('#gcaptcha2').length > 0) {
+      var captcha = grecaptcha.render('gcaptcha2', { sitekey: '6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD', theme: 'dark', size: 'compact' });
+    }
+  };
+</script>
+<!-- End reCaptcha -->
+
+<!-- Latest jQuery -->
+<script src="/assets/js/jquery-2.2.4.min.js"></script>
+<!-- popper js -->
+<script src="/assets/js/popper.min.js"></script>
+<!-- Latest compiled and minified Bootstrap -->
+<script src="/assets/js/bootstrap.min.js"></script>
+<!--<script src="/assets/js/highcharts.js"></script>-->
+<!--<script src="/assets/js/create-highcarts.js"></script>-->
+
+<!-- cd-headline js -->
+<script src="/assets/js/cd-headline.js"></script>
+<!-- jQuery Timer -->
+<!--<script src="/assets/js/jquery.countdown.min.js"></script>-->
+
+<!-- venobox js -->
+<!--<script src="/assets/js/venobox.min.js"></script>-->
+<!-- owl-carousel min js  -->
+<!--<script src="/assets/js/owl.carousel.min.js"></script>-->
+<!-- marquee -->
+<!--<script src="/assets/js/jquery.marquee.min.js"></script>-->
+<script src="/assets/js/jquery.pause.min.js"></script>
+<script src="/assets/js/jquery.easing.min.js"></script>
+
+<!-- WOW - Reveal Animations When You Scroll -->
+<!--<script src="/assets/js/wow.min.js"></script>-->
+<!-- scrolltopcontrol js -->
+<script src="/assets/js/scrolltopcontrol.js"></script>
+<!-- form-contact js -->
+<script src="/assets/js/form-contact.js"></script>
+<!-- jQuery Toasts -->
+<script src="/node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+<!-- BigNumber.js -->
+<script src="/assets/js/bignumber.min.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<!-- Our Homebrew Scripts -->
+<script src="/assets/js/scripts.js"></script>
+<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdJWuAUAAAAAOddxQnKzif0ojf7Vun_b-rgUfkH"></script>
+<script src="/assets/js/crypto-bundle.js"></script>
+<!--
+    <script src="/assets/js/uniswap-widget.js"></script>
+    <script src="/assets/js/addTokenToMetamask.js"></script>
+    <script>
+    // change mainToken field as needed
+    let mainConfig = {
+        mainToken: {
+            symbol: 'ULT',
+            tokenAddress: '0x09617F6fD6cF8A71278ec86e23bBab29C04353a7',
+            exchangeAddress: '0x28d9353611c5a0d5a026a648c05e5d6523e41cbf'
+        },
+        mainServerUrl: 'https://uniswapdex.com:8889',
+    }
+    let widgetConfig = {
+        mainToken: mainConfig.mainToken,
+        tokenListUrl: 'https://beta.shardus.com/assets/js/tokenDB.json',
+        summaryUrl: `${mainConfig.mainServerUrl}/api/summary?tokenAddress=${mainConfig.mainToken.tokenAddress}`,
+        chartUrl: `https://uniswapdex.com/?token=${mainConfig.mainToken.tokenAddress}`,
+        logoUrl: `${mainConfig.mainServerUrl}/static/${mainConfig.mainToken.tokenAddress.toLowerCase()}.png`,
+        authServerUrl: `https://uniswapdex.com:4445`,
+        widgetTitle: '',
+        mainConfig,
+        recaptchaClientKey: "6LdJWuAUAAAAAOddxQnKzif0ojf7Vun_b-rgUfkH"
+    }
+    UniswapConvertWidget(widgetConfig)
+    </script>
+-->

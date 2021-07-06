@@ -1,138 +1,104 @@
--
-  - 
-    name: Aamir Syed
+- - name: Aamir Syed
     title: Developer
     photo: aamir.png
     linkedin: https://www.linkedin.com/in/asyed94/
-  - 
-    name: Aaron Sullivan
+  - name: Aaron Sullivan
     title: Developer
     photo: aaron.jpg
     linkedin: https://www.linkedin.com/in/aaronsullivan/
-  -
-    name: Andrew Foster
+  - name: Andrew Foster
     title: Developer
     photo: AndrewFoster2.jpg
     linkedin: https://www.linkedin.com/in/andrew-foster-b95402a/
-  -
-    name: Carlos Alberto de Araujo Barreto
+  - name: Carlos Alberto de Araujo Barreto
     title: Developer
     photo: carlos.jpg
     linkedin: https://www.linkedin.com/in/carlos-araujo-barreto/
--
-  -
-    name: Curt Phillips
+- - name: Curt Phillips
     title: Developer
     photo: curt.jpg
     linkedin: https://www.linkedin.com/in/curtwphillips/
-  - 
-    name: Derrick Farris
+  - name: Derrick Farris
     title: Developer
     photo: derrick.jpg
     linkedin: https://www.linkedin.com/in/derrickfarris/
-  -
-    name: Erik Xavier
+  - name: Erik Xavier
     title: Developer
     photo: erik.jpg
     linkedin: https://www.linkedin.com/in/erik-xavier-de-alvarenga-monteiro-383a84106/
-  - 
-    name: Gani Padela
+  - name: Gani Padela
     title: Developer
     photo: gani.jpg
     linkedin: https://linkedin.com/in/gani-padela-069876109/
--
-  - 
-    name: Kyle Shifflett
+- - name: Kyle Shifflett
     title: Developer
     photo: kyle.jpg
     linkedin: https://www.linkedin.com/in/kshifflett/
-  - 
-    name: Maher Ben Taleb Ali
+  - name: Maher Ben Taleb Ali
     title: Developer
     photo: maher.jpg
     linkedin: https://www.linkedin.com/in/maher-ben/
-  - 
-    name: Omar Syed
+  - name: Omar Syed
     title: Developer
     photo: omar.jpg
     linkedin: https://www.linkedin.com/in/omarsyed1/
-  -
-    name: Ryuhei Matsuda
+  - name: Ryuhei Matsuda
     title: Developer
     photo: ryuhei.jpg
     linkedin: https://www.linkedin.com/in/ryuhei-matsuda-87b467166/
--
-  -
-    name: Roy King
+- - name: Roy King
     title: Developer
     photo: roy.jpg
     linkedin: https://www.linkedin.com/in/roy-king-7988b0167/
-  - 
-    name: Salman Ahmad
+  - name: Salman Ahmad
     title: Developer
     photo: salman_new.jpg
     linkedin: https://linkedin.com/in/salman-ahmad-4a4573113/
-  - 
-    name: Sameer Siddiqui
+  - name: Sameer Siddiqui
     title: Developer
     photo: sameer.jpg
     linkedin: https://www.linkedin.com/in/sameer-siddiqui-a182491/
-  -
-    name: Thant Sin Toe
+  - name: Thant Sin Toe
     title: Developer
     photo: thant.jpg
     linkedin: https://www.linkedin.com/in/thant-sin-toe-71713265/
--
-  - 
-    name: Greg Hemmer
+- - name: Greg Hemmer
     title: Partnership Manager
     photo: GregHemmer.jpeg
     linkedin: https://www.linkedin.com/in/greg-hemmer/
-  - 
-    name: Shahzad Nathani
+  - name: Shahzad Nathani
     title: Head of Business Development
     photo: shahzad.jpg
     linkedin: https://www.linkedin.com/in/shahzad-nathani-mba-pmp-technologist-educator-1a1182/
-  - 
-    name: Marc Mattox
+  - name: Marc Mattox
     title: Community Relations
     photo: marc.jpg
     linkedin: https://www.linkedin.com/in/marcmattox/
-  - 
-    name: Leon Gaban
+  - name: Leon Gaban
     title: Community Relations
     photo: LeonGaban.jpg
     linkedin: https://www.linkedin.com/in/leongaban/
--
-  - 
-    name: Farhin Ali
+- - name: Farhin Ali
     title: Advisor
     photo: farhin.jpg
     linkedin: https://www.linkedin.com/in/farhin-ali/
-  - 
-    name: Grant Gulovsen
+  - name: Grant Gulovsen
     title: Legal Advisor
     photo: grant.jpeg
     linkedin: https://www.linkedin.com/in/gulovsen/
-  - 
-    name: Joe Schloesser
+  - name: Joe Schloesser
     title: Advisor
     photo: joe.jpg
     linkedin: https://www.linkedin.com/in/josephschloesser/
--
-  - 
-    name: Ghousuddin Syed
+- - name: Ghousuddin Syed
     title: Advisor
     photo: gsyed.jpg
     linkedin: https://www.linkedin.com/in/gsyed/
-  - 
-    name: Naoll Merdassa
+  - name: Naoll Merdassa
     title: Advisor
     photo: NaollMerdassa.jpg
     linkedin: https://www.linkedin.com/in/naoll/
--
-  -
-    name: You?
+- - name: You?
     title: Developer
     photo: you.png
     linkedin: '#join'
