@@ -1,1 +1,104 @@
-<footer></footer>
+<!-- ======================================= 
+    ==Start footer section==  
+    =======================================-->
+<footer class="text-center main-footer footer-style-two">
+  <!--Widgets Section-->
+  <div class="widgets-section padding-top-small padding-bottom-small">
+    <div class="container">
+      <div class="clearfix row">
+        <!--Footer Column-->
+        <div class="footer-column col-md-4 col-sm-6 col-6">
+          <div class="footer-widget contact-widget">
+            <h3 class="has-line-center">Community</h3>
+            <div class="widget-content">
+              <ul class="contact-info">
+                {% for link in site.data.social %}
+                <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--End Footer Column-->
+
+        <!--Footer Column-->
+        <div class="footer-column col-md-4 col-sm-6 col-6">
+          <div class="footer-widget contact-widget">
+            <h3 class="has-line-center">Sitemap</h3>
+            <div class="widget-content">
+              <ul class="contact-info">
+                <li><a class="js-scroll-trigger" href="#home">Home</a></li>
+                <li><a class="js-scroll-trigger" href="#about">Technology</a></li>
+                <li><a class="js-scroll-trigger" href="#features">Features</a></li>
+                <li><a class="js-scroll-trigger" href="#token">Token</a></li>
+                <li><a class="js-scroll-trigger" href="#bounties">Bounties</a></li>
+                <li><a class="js-scroll-trigger" href="#roadmap">Roadmap</a></li>
+                <li><a class="js-scroll-trigger" href="#faq">FAQ</a></li>
+                <li><a class="js-scroll-trigger" href="#team">Team</a></li>
+                <li><a class="js-scroll-trigger" href="#join">Join</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--End Footer Column-->
+
+        <!--Footer Column-->
+        <div class="footer-column col-md-4 col-sm-12 col-xs-12">
+          <div class="footer-widget newsletter-widget">
+            <h3 class="has-line-center">Newsletter</h3>
+            <div class="widget-content">
+              <div class="text">Stay updated with our latest news.</div>
+              <div class="newsletter-form-footer">
+                <form
+                  class="newsletter-form description"
+                  id="footerForm"
+                  name="theform"
+                  action="https://app.mailerlite.com/webforms/submit/r8m8m0"
+                  data-code="r8m8m0"
+                  method="post"
+                  target="_blank"
+                >
+                  <div class="form-group">
+                    <input
+                      spellcheck="false"
+                      type="email"
+                      class="form-email"
+                      data-inputmask=""
+                      name="fields[email]"
+                      placeholder="Your Email"
+                      autocomplete="email"
+                    />
+                    <div class="text-center captcha-wrap">
+                      <div class="g-recaptcha" id="gcaptcha2"></div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1" />
+                    <button type="submit" class="send-btn" data-editfield="subscribe"><span class="fas fa-paper-plane"></span></button>
+                    <img
+                      src="https://track.mailerlite.com/webforms/o/1676002/r8m8m0?v4a60e9ef938a7fa0240ac9ba567062cb"
+                      width="1"
+                      height="1"
+                      style="max-width: 1px; max-height: 1px; visibility: hidden; padding: 0; margin: 0; display: block"
+                      alt="."
+                      border="0"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Footer Column-->
+      </div>
+    </div>
+  </div>
+
+  <!--Footer Bottom-->
+  <div class="footer-bottom">
+    <div class="auto-container">
+      <div class="copyright-text">© {{ site.time | date: '%Y' }} Shardus</div>
+    </div>
+  </div>
+</footer>
+<!-- ======================================= 
+    ==End footer section==  
+    =======================================-->
