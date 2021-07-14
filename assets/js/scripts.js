@@ -1,5 +1,5 @@
 (function ($) {
-  'use strict'
+  'use strict';
 
   var submitSuccess = function () {
     $.toast({
@@ -7,9 +7,9 @@
       hideAfter: 10000,
       bgColor: 'green',
       icon: 'success',
-      position: 'bottom-center'
-    })
-  }
+      position: 'bottom-center',
+    });
+  };
 
   var captchaFailure = function () {
     $.toast({
@@ -17,55 +17,57 @@
       hideAfter: 5000,
       bgColor: 'red',
       icon: 'error',
-      position: 'bottom-center'
-    })
-  }
+      position: 'bottom-center',
+    });
+  };
 
   $(document).on('ready', function () {
     /* MENU JS */
 
     $(window).scroll(function () {
       if ($('#mainNav').offset().top > 100) {
-        $('#mainNav').addClass('navbar-shrink')
+        $('#mainNav').addClass('navbar-shrink');
       } else {
-        $('#mainNav').removeClass('navbar-shrink')
+        $('#mainNav').removeClass('navbar-shrink');
       }
-    })
+    });
 
-    $('a.js-scroll-trigger').on('click', function (e) {
-      var anchor = $(this)
-      $('html, body').stop().animate({
-        scrollTop: $(anchor.attr('href')).offset().top - 48
-      }, 1000)
-      e.preventDefault()
-    })
+    // $('a.js-scroll-trigger').on('click', function (e) {
+    //   var anchor = $(this)
+    //   $('html, body').stop().animate({
+    //     scrollTop: $(anchor.attr('href')).offset().top - 48
+    //   }, 1000)
+    //   e.preventDefault()
+    // })
 
     // Closes responsive menu when a scroll trigger link is clicked
-    $('.js-scroll-trigger').on('click', function () {
-      $('.navbar-collapse').collapse('hide')
-    })
+    $('#mainNav a').on('click', function () {
+      $('.navbar-collapse').collapse('hide');
+    });
 
     // Activate scrollspy to add active class to navbar items on scroll
-    $('body').scrollspy({
-      target: '#mainNav',
-      offset: 54
-    })
+    if (window.location.pathname === '/') {
+      $('body').scrollspy({
+        target: '#mainNav',
+        offset: 54,
+      });
+    }
 
     $('.newsletter-form').submit(function (e) {
-      var $this = $(this)
-      e.preventDefault()
-      var $captchaResponse = $this.find('[name="g-recaptcha-response"]').val()
+      var $this = $(this);
+      e.preventDefault();
+      var $captchaResponse = $this.find('[name="g-recaptcha-response"]').val();
       if ($captchaResponse === '') {
-        captchaFailure()
-        return
-      };
+        captchaFailure();
+        return;
+      }
       $.ajax({
         url: $this.attr('action'),
         type: 'post',
         data: $this.serialize(),
-        success: submitSuccess
-      })
-      $this.find('.form-email').val('')
-    })
-  })
-})(jQuery)
+        success: submitSuccess,
+      });
+      $this.find('.form-email').val('');
+    });
+  });
+})(jQuery);
