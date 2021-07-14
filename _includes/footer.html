@@ -27,15 +27,16 @@
             <h3 class="has-line-center">Sitemap</h3>
             <div class="widget-content">
               <ul class="contact-info">
-                <li><a class="js-scroll-trigger" href="#home">Home</a></li>
-                <li><a class="js-scroll-trigger" href="#about">Technology</a></li>
-                <li><a class="js-scroll-trigger" href="#features">Features</a></li>
-                <li><a class="js-scroll-trigger" href="#token">Token</a></li>
-                <li><a class="js-scroll-trigger" href="#bounties">Bounties</a></li>
-                <li><a class="js-scroll-trigger" href="#roadmap">Roadmap</a></li>
-                <li><a class="js-scroll-trigger" href="#faq">FAQ</a></li>
-                <li><a class="js-scroll-trigger" href="#team">Team</a></li>
-                <li><a class="js-scroll-trigger" href="#join">Join</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#home">Home</a></li>
+                <li><a href="/live/">Event</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#about">Technology</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#features">Features</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#token">Token</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#bounties">Bounties</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#roadmap">Roadmap</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#faq">FAQ</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#team">Team</a></li>
+                <li><a href="{% if page.url != '/index.html' %}/{% endif %}#join">Join</a></li>
               </ul>
             </div>
           </div>
