@@ -29,7 +29,7 @@ body {
 
 @media (max-width: 767px) {
   .video-panel {
-    margin-top: 50px !important;
+    margin-top: 70px !important;
   }
 }
 
@@ -464,4 +464,36 @@ div#uniswap-convert-section {
     font-size: 50px !important;
     margin-bottom: 0;
   }
+}
+.navbar {
+  flex-direction: column !important;
+}
+.nav-banner {
+  display: block;
+  width: 100%;
+  height: 1.85rem;
+}
+@media only screen and (max-width: 800px) {
+  .nav-banner {
+    display: none;
+  }
+}
+
+.nav-banner .inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  background-color: #ed1b24;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-banner .inner * {
+  color: #fff !important;
+}
+
+.container.header-content {
+  margin-top: 30px;
 }
