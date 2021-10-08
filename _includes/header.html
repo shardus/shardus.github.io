@@ -2,11 +2,16 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="nav-banner">
     <div class="inner">
-      <a href="https://youtu.be/vJPKpJz32mY"> Check out our recent Q2 quarterly update from August 14! <strong>Watch it now &rarr;</strong> </a>
+      <a href="https://shardus.com/live">
+        Check out our upcoming Q3 quarterly event on October 16!
+        <strong>Watch it now &rarr;</strong>
+      </a>
     </div>
   </div>
   <div class="container">
-    <a class="navbar-brand" href="{% if page.url != '/index.html' %}/{% endif %}#page-top"
+    <a
+      class="navbar-brand"
+      href="{% if page.url != '/index.html' %}/{% endif %}#page-top"
       ><img class="img-fluid" src="/assets/img/logo.svg" alt="Shardus logo"
     /></a>
     <button
@@ -24,34 +29,62 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="ml-auto navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#home">Home</a>
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#home"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if page.url == '/live/' %}active{% endif %}" href="/live/">Event</a>
+          <a
+            class="nav-link {% if page.url == '/live/' %}active{% endif %}"
+            href="/live/"
+            >Event</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#about">Technology</a>
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#about"
+            >Technology</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#features">Features</a>
+          <a
+            class="nav-link"
+            href="{% if page.url != '/' %}/{% endif %}#features"
+            >Features</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#token">Token</a>
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#token"
+            >Token</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#bounties">Bounties</a>
+          <a
+            class="nav-link"
+            href="{% if page.url != '/' %}/{% endif %}#bounties"
+            >Bounties</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#roadmap">Roadmap</a>
+          <a
+            class="nav-link"
+            href="{% if page.url != '/' %}/{% endif %}#roadmap"
+            >Roadmap</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#team">Team</a>
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#team"
+            >Team</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#faq">FAQ</a>
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#faq"
+            >FAQ</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#join">Join</a>
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#join"
+            >Join</a
+          >
         </li>
         <li class="nav-item">
           <div class="dropdown show">
@@ -66,10 +99,30 @@
               Resources
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="{{ site.data.links.whitepaper }}" target="_blank">Whitepaper</a>
-              <a class="dropdown-item" href="https://github.com/Shardus/shardus.github.io/wiki" target="_blank">Wiki</a>
-              <a class="dropdown-item" href="https://shardus.gitlab.io/docs/developer/" target="_blank">Developer Docs</a>
-              <a class="dropdown-item" href="{{ site.data.links.legalopinion }}" target="_blank">Legal Opinion</a>
+              <a
+                class="dropdown-item"
+                href="{{ site.data.links.whitepaper }}"
+                target="_blank"
+                >Whitepaper</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://github.com/Shardus/shardus.github.io/wiki"
+                target="_blank"
+                >Wiki</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://shardus.gitlab.io/docs/developer/"
+                target="_blank"
+                >Developer Docs</a
+              >
+              <a
+                class="dropdown-item"
+                href="{{ site.data.links.legalopinion }}"
+                target="_blank"
+                >Legal Opinion</a
+              >
             </div>
           </div>
         </li>
