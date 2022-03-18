@@ -3,6 +3,28 @@
     <title>Shardus License</title>
   </head>
   <body>
-    <h1>Coming soon.</h1>
+    <h1>Shardus License.</h1>
+    <p>Please use the most current license file.
+  
+    <ul>
+      <li><a href="SHARDUS_SOFTWARE_LICENSE_2022-03-18.pdf">2022-03-18</a> <a href="https://polygonscan.com/tx/0x74270fd0825eaa92067e2e7a85e0802260e70da5ef6b9d00f88bed43e6296c7d" target=_blank>Notarized</a>
+    </ul>
+    <p>To verify the license file was notarized:
+    <ol>
+      <li>Click the version number to download the file.</li>
+      <li>Run the command: sha256sum [filename]</li> to get the checksum of the file. Or upload the file <a href="https://notary.bitcoin.com/" target=_blank>here</a> </li>
+      <li>Click the 'Notary' link to open the transaction and then the 'Click to see more' link to get the 'Input Data' field.</li>
+      <li>Ensure that the checksum matches the 'Input Data' field.</a>
+      <li>If so, the license file was notarized at the Timestamp of the transaction.</li>
+    </ol>
+    <p>To notarize a license file:
+    <ol>
+      <li>Click the version number to download the file.</li>
+      <li>Run the command: sha256sum [filename]</li> to get the checksum of the file. Or upload the file <a href="https://notary.bitcoin.com/" target=_blank>here</a> </li>
+      <li>Go to <a href="https://www.myetherwallet.com/wallet/access" target=_blank>MyEtherWallet</a> </li>
+      <li>Connect your MetaMask wallet or some other wallet. Make sure the wallet address is associated with your organization. Use a network with low fees; like Polygon.</li>
+      <li>Send a transaction to your own address with zero native coins of the network. Be sure to set the 'Input Data' to the checksum of the file starting with 0x</li>
+    </ol>
+
   </body>
 </html>
