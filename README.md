@@ -26,6 +26,12 @@ Next, install bundler:
 gem install bundler
 ```
 
+If you are unable to install bundler and jekyll as described above, try this:
+
+```
+sudo apt install <name>
+```
+
 Then, clone this repo and enter into it in the command line. Now, install dependencies by running:
 
 ```
