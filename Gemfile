@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
-gem "jekyll", "3.6.3"
+gem "jekyll"
+gem "kramdown-parser-gfm"
+gem "webrick"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
