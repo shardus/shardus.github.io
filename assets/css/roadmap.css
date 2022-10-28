@@ -1,0 +1,18 @@
+.navbar{
+    padding: 8rem 0;
+    padding-top: 0rem;
+    margin-bottom: 0rem;
+    /*background-image: linear-gradient(rgba(29, 29, 29, 0.95), rgba(29, 29, 29, 0.95)), url(/assets/img/logo.svg)*/
+    /*color: #333;*/
+    background-color: rgba(34, 34, 34);
+    background-size: cover;
+    background-position: center;
+}
+.section-title{
+    padding: 6rem 0;
+    margin-bottom: 0rem;
+    padding-bottom: 2rem;
+}
+.bottom-padding{
+    padding: 4rem 0;
+}

@@ -3,11 +3,14 @@
   <div class="nav-banner">
     <div class="inner">
       <a href="https://shardus.com/live">
+      <a href="https://shardus.com/roadmap">
+      <a href="https://shardus.com/team">
 <!--
         Check out our Q3 quarterly event! 
         <strong>Watch it now! &rarr;</strong>
 -->
-        Watch our quarterly event
+      <a>
+        Watch our quarterly event   
         <strong>Oct 29th 1:00pm Central time !!  &rarr;</strong>
       </a>
     </div>
@@ -70,13 +73,14 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
-            href="{% if page.url != '/' %}/{% endif %}#roadmap"
+            class="nav-link {% if page.url == '/roadmap/' %}active{% endif %}"
+            href="/roadmap/"
             >Roadmap</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#team"
+          <a class="nav-link {% if page.url == '/team/' %}active{% endif %}" 
+            href="/team/"
             >Team</a
           >
         </li>
@@ -126,6 +130,12 @@
                 href="{{ site.data.links.legalopinion }}"
                 target="_blank"
                 >Legal Opinion</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://shardus.com/license/"
+                target="_blank"
+                >Licenses</a
               >
             </div>
           </div>

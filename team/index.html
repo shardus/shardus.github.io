@@ -1,0 +1,36 @@
+---
+layout: default
+title: 'Team – Shardus'
+---
+
+<link rel="stylesheet" href="/assets/css/team.css" />
+
+<div class="navbar"></div>
+
+<section id="team" class="text-center team-section content-section section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-lg-9">
+        <div class="section-title">
+          <h3>Team</h3>
+          <span class="underline"></span>
+        </div>
+        {% for row in site.data.team %}
+        <div class="lineup row justify-content-center">
+          {% for member in row %}
+          <div class="col-sm-6 col-md-3 team-member">
+            <img class="member-photo" src="../assets/img/team/{{ member.photo }}" alt="{{ member.name }}" />
+            <div class="member-info">
+              <strong class="member-name">{{ member.name }}</strong>
+              <p class="member-title">{{ member.title }}</p>
+              <a class="member-link js-scroll-trigger" href="{{ member.linkedin }}"><i class="fas fa-link fa-lg" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
