@@ -21,6 +21,6 @@
   });
   controller.setInitCountry('KM');
   controller.setTransparentBackground(true);
-  controller.setAutoRotation(true, -0.5);
+  controller.setAutoRotation(true, 0.05);
   controller.init();
 }
