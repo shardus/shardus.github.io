@@ -6,45 +6,15 @@ title: 'Live Events – Shardus'
 <link rel="stylesheet" href="/assets/css/live.css" />
 
 <div class="top-section">
-  <h1 align="center" class="red">Shardus Q4 2022 Update</h1>
-  <h3 align="center"><font color="white">Tuesday, January 24th at 9:00 AM Central time</font></h3>
+  <h1 align="center" class="red">Shardus Q2 2022 Update</h1>
+  <h3 align="center"><font color="white">Saturday, August 13th at 11:00 AM Central time</font></h3>
   <center>
-    <a class="btn-home-2 secondary" href="https://youtu.be/aKiP9KEC1fU" target="_blank">Watch on YouTube</a>
+    <a class="btn-home-2 secondary" href="" target="_blank">Watch on YouTube</a>
   </center>
 </div>
 
 <center>
   <h3 align="center">Previous Quarterly Updates</h3>
-
-  <p>
-    <b>Q3 2022</b>
-    <!--
-    <iframe
-      src="https://youtu.be/ZY-tOTbvd5M"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-    -->
-    <a href="https://youtu.be/aKiP9KEC1fU", target="_blank">
-      <img src="stopgap/Q3 2022.jpg" width="900">
-    </a>
-  </p>
-
-  <p>
-    <b>Q2 2022</b>
-    <!--
-    <iframe
-      src="https://youtu.be/ZY-tOTbvd5M"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-    -->
-    <a href="https://youtu.be/sKczslvXBd4", target="_blank">
-      <img src="stopgap/Q2 2022.jpg" width="900">
-    </a>
-  </p>
 
   <p>
     <b>Q1 2022</b>
