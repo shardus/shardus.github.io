@@ -2,10 +2,6 @@
     title: Developer
     photo: andrey.jpg
     linkedin: https://www.linkedin.com/in/andrey-gorlin-53121568/
-  - name: Ryuhei Matsuda
-    title: Developer
-    photo: ryuhei.png
-    linkedin: https://www.linkedin.com/in/ryuhei-matsuda/
   - name: Aamir Syed
     title: Developer
     photo: aamir.png
@@ -14,15 +10,11 @@
     title: Developer
     photo: kaung.jpeg
     linkedin: https://www.linkedin.com/in/kmt29/
-- - name: Andrew Foster
+  - name: Andrew Foster
     title: Developer
     photo: AndrewFoster2.jpg
     linkedin: https://www.linkedin.com/in/andrew-foster-b95402a/
-  - name: Zahoor Mohamed
-    title: Developer
-    photo: zahoor.png
-    linkedin: https://www.linkedin.com/in/j-mohamed-zahoor-294b1020/
-  - name: Jai Raj Rana Magar
+- - name: Jai Raj Rana Magar
     title: Developer
     photo: jai.png
     linkedin: https://www.linkedin.com/in/jairajranamagar/?originalSubdomain=mm
@@ -30,7 +22,7 @@
     title: Developer
     photo: ahmed.jpg
     linkedin: https://www.linkedin.com/in/ahmed-iqbal-57b449209/
-- - name: Thant Sin Toe
+  - name: Thant Sin Toe
     title: Developer
     photo: thant.jpg
     linkedin: https://www.linkedin.com/in/thant-sin-toe-71713265/
@@ -38,7 +30,7 @@
     title: Developer
     photo: omar.jpg
     linkedin: https://www.linkedin.com/in/omarsyed1/
-  - name: Dan Ingamells
+- - name: Dan Ingamells
     title: Researcher/Technical Writer
     photo: dan.jpg
     linkedin: https://www.linkedin.com/in/dan-ingamells-cro-consultant/
@@ -46,7 +38,7 @@
     title: Partnership Manager
     photo: GregHemmer.jpeg
     linkedin: https://www.linkedin.com/in/greg-hemmer/
-- - name: Shahzad Nathani
+  - name: Shahzad Nathani
     title: Head of Business Development
     photo: shahzad.jpg
     linkedin: https://www.linkedin.com/in/shahzad-nathani-mba-pmp-technologist-educator-1a1182/
@@ -54,7 +46,7 @@
     title: Community Relations
     photo: marc.jpg
     linkedin: https://www.linkedin.com/in/marcmattox/
-  - name: Leon Gaban
+- - name: Leon Gaban
     title: Community Relations
     photo: LeonGaban.jpg
     linkedin: https://www.linkedin.com/in/leongaban/
@@ -62,7 +54,7 @@
     title: Advisor
     photo: farhin.jpg
     linkedin: https://www.linkedin.com/in/farhin-ali/
-- - name: Grant Gulovsen
+  - name: Grant Gulovsen
     title: Legal Advisor
     photo: grant.jpeg
     linkedin: https://www.linkedin.com/in/gulovsen/
@@ -70,7 +62,7 @@
     title: Advisor
     photo: joe.jpg
     linkedin: https://www.linkedin.com/in/josephschloesser/
-  - name: Ghousuddin Syed
+- - name: Ghousuddin Syed
     title: Advisor
     photo: gsyed.jpg
     linkedin: https://www.linkedin.com/in/gsyed/
