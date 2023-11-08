@@ -57,11 +57,23 @@
             >Token</a
           >
         </li>
+<!--
         <li class="nav-item">
           <a
             class="nav-link"
             href="{% if page.url != '/' %}/{% endif %}#bounties"
             >Bounties</a
+          >
+        </li>
+-->
+        <li class="nav-item">
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#faq"
+            >FAQ</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#join"
+            >Join</a
           >
         </li>
         <li class="nav-item">
@@ -75,16 +87,6 @@
           <a class="nav-link {% if page.url == '/team/' %}active{% endif %}" 
             href="/team/"
             >Team</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#faq"
-            >FAQ</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#join"
-            >Join</a
           >
         </li>
         <li class="nav-item">
