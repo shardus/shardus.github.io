@@ -34,13 +34,6 @@
           >
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link {% if page.url == '/live/' %}active{% endif %}"
-            href="/live/"
-            >Event</a
-          >
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{% if page.url != '/' %}/{% endif %}#about"
             >Technology</a
           >
@@ -87,6 +80,13 @@
           <a class="nav-link {% if page.url == '/team/' %}active{% endif %}" 
             href="/team/"
             >Team</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if page.url == '/live/' %}active{% endif %}"
+            href="/live/"
+            >Events</a
           >
         </li>
         <li class="nav-item">
