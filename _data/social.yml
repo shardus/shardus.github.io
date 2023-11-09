@@ -1,9 +1,12 @@
 -
-  name: Twitter
-  url: https://twitter.com/ShardusLedger
+  name: Discord
+  url: https://discord.gg/JMP4bHDfGU
 -
   name: YouTube
   url: https://www.youtube.com/channel/UC-DQu61lxOvicMi0VsSIAtA
+-
+  name: Twitter
+  url: https://twitter.com/ShardusLedger
 -
   name: Medium
   url: https://medium.com/@Shardus
@@ -13,9 +16,6 @@
 -
   name: Telegram
   url: https://t.me/shardusnews
--
-  name: Discord
-  url: https://discord.gg/JMP4bHDfGU
 -
   name: Reddit
   url: https://reddit.com/r/Shardus
