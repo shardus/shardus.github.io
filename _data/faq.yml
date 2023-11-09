@@ -1,24 +1,24 @@
 - 
   q: What is Shardus?
-  a: Shardus is a project with a mission to develop technology for the public benefit. It's focus is on advancing distributed ledger technology. The software developed by Shardus will be the foundation for global-scale decentralized networks. The Shardus software can be used as a starting point for other public or private decentralized networks by adding a custom transaction layer. Decentralized application which are built using Shardus will inherit many features including scalability, decentralization, effiency and sustainability. Applications built using Shardus will scale to accommodate more throughput as demand grows, simply by adding more nodes to the network.
+  a: Shardus is a project with a mission to develop technology for the public benefit. It's focus is on advancing distributed ledger technology. The software developed by Shardus will be the foundation for global-scale decentralized networks. The Shardus software can be used as a starting point for other public or private decentralized networks by adding a custom application layer. Decentralized application which are built using Shardus will inherit many features including scalability, decentralization, effiency and sustainability. Applications built using Shardus will scale to accommodate more throughput as demand grows, simply by adding more nodes to the network.
 -
   q: What is Shardeum?
-  a: Shardeum is a smart contract platform built using the Shardus software. It uses the Ethereum Virtual Machine and is 100% compatible with Ethereum. It will have bridges to Ethereum and many other networks. Shardeum will have high transaction throughput, very low transaction fees, and true decentralization. 
+  a: Shardeum is a smart contract platform built using the Shardus software. It uses the Ethereum Virtual Machine and is 100% compatible with Ethereum. It will have bridges to Ethereum and many other networks. It has a native coin used to pay transaction fees. Shardeum will have high transaction throughput, very low transaction fees, and true decentralization. 
 -
   q: What is Liberdus?
-  a: Liberdus is the first application built using the Shardus software. It's core function will be the payment network and coin. Liberdus will have very fast transaction times, very low transaction fees, and sustainable rewards for validators. Liberdus holders can participate in the future direction of the network by voting on economic parameters like transaction fees, validator rewards and a maintenance fund.
+  a: Liberdus is a communication application built using the Shardus software. It also has a native coin used to pay transaction fees as well as tolls set by message recipients. Liberdus will have very fast transaction times, very low transaction fees, and sustainable rewards for validators. Liberdus holders can participate in the future direction of the network by voting on economic parameters like transaction fees, validator rewards and a maintenance fund.
 -
-  q: Is there a token for this project?
-  a: Yes, there is a token on the Ethereum network called Shardus with the symbol (ULT). In the past this token was called Unblocked Ledger Token before being renamed to Shardus. The token is given in exchange for code development and bounty completion. The token is given at a rate of $0.10 per token. The token is not sold in a presale or an ICO. Nor does the Shardus project sell the token on exchanges to raise funds.
+  q: Is there a token for Shardus project?
+  a: Yes, there is a token on the Ethereum and Polygon network called Shardus with the symbol (ULT). In the past this token was called Unblocked Ledger Token before being renamed to Shardus. The token is given in exchange for code development and other direct contributions to the Shardus project. The token was not sold in a presale or an ICO. Nor does the Shardus project sell the token on exchanges to raise funds. The tokens offered on AMMs are owned by those who earned it and not by the project.
 -
   q: What is the utility of the tokens?
-  a: The Shardus tokens are needed for licensing the Shardus software.
+  a: The Shardus tokens are needed for (licensing)(/license/) the Shardus software.
 -
   q: How can I obtain tokens?
-  a: To obtain the tokens directly from the Shardus project, you need to contribute effort or resources to the project. Tokens cannot be obtained from the project for any form or money, crypto or fiat. If you are a developer you should fill out the Join form and apply to join the development team to earn tokens that way. We also post bounties from time to time and you can earn tokens by completing them. You can also buy or sell the tokens from an exchange or from those who have earned the token. The Shardus project is not involved with exchange listings or facilitating trades.
+  a: To obtain the tokens directly from the Shardus project, you need to contribute effort or resources to the project. Tokens cannot be bought directly from the project. If you are a developer you should fill out the Join form and apply to join the development team to earn tokens that way. You can buy or sell the tokens from an exchange or from those who have earned the token. The Shardus project is not involved with exchange listings or facilitating trades.
 -
   q: Is the Shardus project open source?
-  a: Once the project is completed, the source code will be made available under a Creative Commons BY-NC-SA license. After 50 years, it will be available under a Creative Commons BY license with no restrictions. Anyone interested in reviewing the code during development, may do so with a NDA which expires after the code is released.
+  a: Yes, once the project is completed, the source code will be made available under a Creative Commons BY-NC-SA license. After 50 years, it will be available under a Creative Commons BY license with no restrictions. Anyone interested in reviewing the code during development, may do so with a NDA which expires after the code is released.
 -
   q: Where can I get answers to more questions?
-  a: You can check the [Advanced FAQ](https://github.com/Shardus/shardus.github.io/wiki/Advanced-FAQ) on our Project Wiki. If you still have questions, email info@shardus.com or ask on our subreddit r/Shardus.
+  a: You can check the [Advanced FAQ](https://github.com/Shardus/shardus.github.io/wiki/Advanced-FAQ) on our (Wiki)(https://github.com/Shardus/shardus.github.io/wiki). If you still have questions, email info@shardus.com or ask on our Discord server.
