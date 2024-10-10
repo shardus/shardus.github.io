@@ -11,7 +11,7 @@ email: info@shardus.com
 description: > # this means to ignore newlines until "baseurl:"
   Shardus is building the protocol layer software to enable application specific chains. We aim to remedy the problems of scalability, decentralization and efficiency. 
   Application specific chains built with Shardus will use dynamic state sharding and allow for global-scale decentralized networks. 
-  The Shardeum and Liberdus networks are being developed using this technology. What will you build with Shardus?
+  The <a href="https://shardeum.org/" target=_blank>Shardeum</a> and <a href="https://liberdus.com" target=_blank>Liberdus</a> networks are being developed using this technology. What will you build with Shardus?
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://shardus.com" # the base hostname & protocol for your site
 thumbnail: "assets/img/shardus-thumb-04-2019-1-91.png"
